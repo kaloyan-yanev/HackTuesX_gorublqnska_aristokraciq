@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "6dcc05dddfd51fca",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "934796285c75619e",
         "type": "ui_tab",
         "name": "Home",
@@ -151,9 +159,9 @@
         }
     },
     {
-        "id": "1a59e0d91aeed44e",
+        "id": "1b28f15e06ab83e4",
         "type": "ui_group",
-        "name": "Nas",
+        "name": "Nasko",
         "tab": "934796285c75619e",
         "order": 3,
         "disp": true,
@@ -179,8 +187,8 @@
         "payloadType": "str",
         "topic": "payload",
         "topicType": "msg",
-        "x": 190,
-        "y": 320,
+        "x": 170,
+        "y": 340,
         "wires": [
             [
                 "a45b020e7d1b04bb",
@@ -201,8 +209,8 @@
         "label": "text",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 370,
-        "y": 320,
+        "x": 350,
+        "y": 340,
         "wires": []
     },
     {
@@ -218,8 +226,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 380,
-        "y": 380,
+        "x": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -230,8 +238,8 @@
         "group": "24f5be2db9a85742",
         "voice": "urn:moz-tts:speechd:English%20(America)+Andy?en-US",
         "always": "",
-        "x": 380,
-        "y": 260,
+        "x": 360,
+        "y": 280,
         "wires": []
     },
     {
@@ -252,12 +260,11 @@
         "min": 0,
         "max": "1000",
         "step": 1,
-        "x": 190,
+        "x": 170,
         "y": 500,
         "wires": [
             [
-                "bdb5928a31219d30",
-                "e77276f518470cdb"
+                "bdb5928a31219d30"
             ]
         ]
     },
@@ -283,7 +290,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 400,
+        "x": 380,
         "y": 500,
         "wires": []
     },
@@ -291,7 +298,7 @@
         "id": "d52c4ae194bc462d",
         "type": "ui_media",
         "z": "58b6c811a59c81cb",
-        "group": "24f5be2db9a85742",
+        "group": "1b28f15e06ab83e4",
         "name": "",
         "width": 0,
         "height": 0,
@@ -301,31 +308,40 @@
         "layout": "center",
         "showcontrols": true,
         "loop": true,
-        "onstart": true,
+        "onstart": false,
         "scope": "local",
         "tooltip": "",
-        "x": 850,
-        "y": 280,
+        "x": 170,
+        "y": 180,
         "wires": [
             []
         ]
     },
     {
-        "id": "e77276f518470cdb",
-        "type": "function",
+        "id": "6ee6cdafa3bc541d",
+        "type": "ui_button",
         "z": "58b6c811a59c81cb",
-        "name": "function 1",
-        "func": "let a\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 580,
+        "name": "",
+        "group": "71a5aaa84d122134",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "yes",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 620,
         "wires": [
-            []
+            [
+                "bdb5928a31219d30"
+            ]
         ]
     }
 ]
