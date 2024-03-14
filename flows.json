@@ -12,6 +12,7 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -116,18 +117,20 @@
     {
         "id": "c0ada8f56c21604a",
         "type": "ui_group",
-        "name": "Button",
-        "tab": "567818b532b20952",
+        "name": "schedule",
+        "tab": "435ea9b68a7088e3",
         "order": 1,
         "disp": true,
         "width": "6",
-        "collapse": false
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "0f714a2baa645c3f",
         "type": "ui_tab",
         "name": "Water",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -145,7 +148,7 @@
     {
         "id": "292a8341e8e17273",
         "type": "ui_group",
-        "name": "Nasko",
+        "name": "Button",
         "tab": "567818b532b20952",
         "order": 2,
         "disp": true,
@@ -158,6 +161,7 @@
         "type": "ui_tab",
         "name": "Temprature",
         "icon": "dashboard",
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -196,7 +200,7 @@
         "id": "c4827efd67c08bed",
         "type": "serial-port",
         "name": "",
-        "serialport": "/dev/ttyS10",
+        "serialport": "/dev/ttyS24",
         "serialbaud": "57600",
         "databits": "8",
         "parity": "none",
@@ -213,10 +217,61 @@
         "responsetimeout": "10000"
     },
     {
+        "id": "435ea9b68a7088e3",
+        "type": "ui_tab",
+        "name": "lights on",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c0b1a7eec0dbda03",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyS13",
+        "serialbaud": "57600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "4b77d66591329d0b",
+        "type": "ui_group",
+        "name": "Lights off",
+        "tab": "435ea9b68a7088e3",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dfb86175cc93c97d",
+        "type": "ui_group",
+        "name": "Set timer",
+        "tab": "567818b532b20952",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "170211c5f81fec88",
         "type": "ui_time_scheduler",
         "z": "58b6c811a59c81cb",
-        "group": "c0ada8f56c21604a",
+        "group": "dfb86175cc93c97d",
         "name": "Timer",
         "startDay": "4",
         "refresh": 60,
@@ -261,7 +316,7 @@
         "type": "ui_button",
         "z": "58b6c811a59c81cb",
         "name": "Start feeding",
-        "group": "c0ada8f56c21604a",
+        "group": "292a8341e8e17273",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -282,7 +337,7 @@
             [
                 "564240a4240b9bac",
                 "fd9490d66a67aba7",
-                "28e84e2de9073445"
+                "756d54529b94fc1e"
             ]
         ]
     },
@@ -303,34 +358,10 @@
         "wires": []
     },
     {
-        "id": "28e84e2de9073445",
-        "type": "join",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "mode": "auto",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": "false",
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "x": 370,
-        "y": 300,
-        "wires": [
-            [
-                "6b9be259bc132cbf"
-            ]
-        ]
-    },
-    {
         "id": "fd9490d66a67aba7",
         "type": "ui_text",
         "z": "58b6c811a59c81cb",
-        "group": "c0ada8f56c21604a",
+        "group": "292a8341e8e17273",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -342,7 +373,7 @@
         "style": false,
         "font": "",
         "fontSize": 16,
-        "color": "#000",
+        "color": "#000000",
         "x": 380,
         "y": 260,
         "wires": []
@@ -352,7 +383,7 @@
         "type": "ui_text_input",
         "z": "58b6c811a59c81cb",
         "name": "Water easy",
-        "label": "LIters",
+        "label": "Liters",
         "tooltip": "",
         "group": "bde92985be657294",
         "order": 3,
@@ -454,7 +485,7 @@
         "type": "serial out",
         "z": "58b6c811a59c81cb",
         "name": "Extracting water",
-        "serial": "",
+        "serial": "c0b1a7eec0dbda03",
         "x": 700,
         "y": 420,
         "wires": []
@@ -598,7 +629,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 280,
+        "y": 200,
         "wires": [
             [
                 "c28f28ee1884cf01"
@@ -612,7 +643,175 @@
         "name": "Is it time to feed",
         "serial": "cbf91c0782859d81",
         "x": 740,
-        "y": 280,
+        "y": 200,
         "wires": []
+    },
+    {
+        "id": "99b695e963d1b8e7",
+        "type": "ui_time_scheduler",
+        "z": "58b6c811a59c81cb",
+        "group": "c0ada8f56c21604a",
+        "name": "Lights on",
+        "startDay": 0,
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": false,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            },
+            {
+                "label": "Off",
+                "event": "false"
+            }
+        ],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "743e148b214ec0bc"
+            ],
+            [
+                "743e148b214ec0bc"
+            ]
+        ]
+    },
+    {
+        "id": "743e148b214ec0bc",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 5",
+        "func": "var input=msg.payload;\n\nif(input==true){\nreturn console.log(\"lights 1\");\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 740,
+        "wires": [
+            [
+                "d7b679c07ddb1ea8"
+            ]
+        ]
+    },
+    {
+        "id": "d7b679c07ddb1ea8",
+        "type": "serial out",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "serial": "c4827efd67c08bed",
+        "x": 550,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "e3510e01f3808818",
+        "type": "ui_time_scheduler",
+        "z": "58b6c811a59c81cb",
+        "group": "4b77d66591329d0b",
+        "name": "lights off",
+        "startDay": 0,
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": false,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            },
+            {
+                "label": "Off",
+                "event": "false"
+            }
+        ],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 160,
+        "y": 800,
+        "wires": [
+            [
+                "b0d3812797700802"
+            ],
+            [
+                "b0d3812797700802"
+            ]
+        ]
+    },
+    {
+        "id": "b0d3812797700802",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 6",
+        "func": "var input=msg.payload;\n\nif(input==true){\nreturn console.log(\"lights 0\");\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 800,
+        "wires": [
+            [
+                "fcfec8f3c5984b77"
+            ]
+        ]
+    },
+    {
+        "id": "fcfec8f3c5984b77",
+        "type": "serial out",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "serial": "c4827efd67c08bed",
+        "x": 550,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "756d54529b94fc1e",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 7",
+        "func": "var check=msg.payload;\nreturn console.log(\"feed 15\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 300,
+        "wires": [
+            [
+                "c28f28ee1884cf01"
+            ]
+        ]
     }
 ]
