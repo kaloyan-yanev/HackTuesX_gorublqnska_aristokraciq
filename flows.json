@@ -11,7 +11,7 @@
         "id": "6dcc05dddfd51fca",
         "type": "tab",
         "label": "Flow 2",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -26,7 +26,7 @@
     {
         "id": "f4b23440ae4359f5",
         "type": "ui_group",
-        "name": "How many liters",
+        "name": "When food",
         "tab": "934796285c75619e",
         "order": 1,
         "disp": true,
@@ -65,7 +65,7 @@
         "id": "987bfdb1d572ce84",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -77,7 +77,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -87,44 +88,44 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
+                    "default": "#097479",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
                     "value": "#111111",
                     "edited": false
                 },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#097479",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -162,10 +163,10 @@
         "id": "1b28f15e06ab83e4",
         "type": "ui_group",
         "name": "Nasko",
-        "tab": "934796285c75619e",
+        "tab": "832564132aeb2b31",
         "order": 3,
         "disp": true,
-        "width": "6",
+        "width": "20",
         "collapse": false
     },
     {
@@ -189,7 +190,283 @@
         "responsetimeout": "10000"
     },
     {
-        "id": "cac594fa3c5772dd",
+        "id": "1372c9a791dec188",
+        "type": "ui_slider",
+        "z": "58b6c811a59c81cb",
+        "name": "Liters",
+        "label": "Water",
+        "tooltip": "",
+        "group": "71a5aaa84d122134",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1000",
+        "step": 1,
+        "x": 370,
+        "y": 460,
+        "wires": [
+            [
+                "005882d06909d2c4",
+                "bdb5928a31219d30"
+            ]
+        ]
+    },
+    {
+        "id": "bdb5928a31219d30",
+        "type": "ui_gauge",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "group": "71a5aaa84d122134",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Liters amount",
+        "label": "liters",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 640,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "005882d06909d2c4",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "extract water",
+        "func": "var input = msg.payload;\n\nreturn console.log(\"Check time for %d liters\", input);;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 440,
+        "wires": [
+            [
+                "2b6f1d6ea33fd63c"
+            ]
+        ]
+    },
+    {
+        "id": "2b6f1d6ea33fd63c",
+        "type": "serial out",
+        "z": "58b6c811a59c81cb",
+        "name": "Water for draining",
+        "serial": "caf9b93f1850c7fa",
+        "x": 910,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b50877fe91cd625b",
+        "type": "debug",
+        "z": "58b6c811a59c81cb",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "76ee91d934f64c7b",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 1",
+        "func": "var i=0;\nfor(i=0;i<1000000000;i++)\n   \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37e5e756acd81fcb",
+        "type": "ui_text_input",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "71a5aaa84d122134",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "1372c9a791dec188"
+            ]
+        ]
+    },
+    {
+        "id": "4740c8f9a36363e7",
+        "type": "ui_upload_mf",
+        "z": "58b6c811a59c81cb",
+        "title": "upload-mf",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 5,
+        "chunk": 256,
+        "transfer": "binary",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "b50877fe91cd625b"
+            ]
+        ]
+    },
+    {
+        "id": "48dbc2e2f27386b3",
+        "type": "jimp-image",
+        "z": "58b6c811a59c81cb",
+        "name": "Get image",
+        "data": "image",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "",
+        "parameter1Type": "msg",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "image",
+        "sendPropertyType": "msg",
+        "parameterCount": 0,
+        "jimpFunction": "none",
+        "selectedJimpFunction": {
+            "name": "none",
+            "fn": "none",
+            "description": "Just loads the image.",
+            "parameters": []
+        },
+        "x": 390,
+        "y": 580,
+        "wires": [
+            [
+                "19a5e70376b4556f",
+                "497d40668c7a2068"
+            ]
+        ]
+    },
+    {
+        "id": "19a5e70376b4556f",
+        "type": "image viewer",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "width": "100",
+        "data": "image",
+        "dataType": "msg",
+        "active": true,
+        "x": 370,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac29ce93398c6123",
+        "type": "inject",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "image",
+                "v": "https://previews.123rf.com/images/tmcphotos/tmcphotos1309/tmcphotos130900349/22079421-relaxed-mature-businessman-with-hands-behind-head-sitting-on-office-chair-against-white-background.jpg",
+                "vt": "str"
+            },
+            {
+                "p": "qr",
+                "v": "Nasko",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "0.01",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 580,
+        "wires": [
+            [
+                "48dbc2e2f27386b3"
+            ]
+        ]
+    },
+    {
+        "id": "f700b61bb42c53bb",
+        "type": "timer-node",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "topic": "",
+        "timer": "",
+        "payloadOn": "true",
+        "payloadOnType": "bool",
+        "payloadOff": "true",
+        "payloadOffType": "bool",
+        "x": 790,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2b28c33ef130f990",
         "type": "ui_button",
         "z": "58b6c811a59c81cb",
         "name": "Button",
@@ -207,18 +484,19 @@
         "payloadType": "str",
         "topic": "payload",
         "topicType": "msg",
-        "x": 170,
-        "y": 340,
+        "x": 70,
+        "y": 360,
         "wires": [
             [
-                "a45b020e7d1b04bb",
-                "c5c5be798562c680",
-                "6dd0df13f4877c0c"
+                "bd59e909789855f6",
+                "9034d7966ea1d1e7",
+                "6e538d448fe18fc9",
+                "9cb1fd8e89e218cd"
             ]
         ]
     },
     {
-        "id": "a45b020e7d1b04bb",
+        "id": "bd59e909789855f6",
         "type": "ui_text",
         "z": "58b6c811a59c81cb",
         "group": "24f5be2db9a85742",
@@ -229,15 +507,15 @@
         "label": "text",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 350,
-        "y": 340,
+        "x": 210,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "c5c5be798562c680",
+        "id": "9034d7966ea1d1e7",
         "type": "debug",
         "z": "58b6c811a59c81cb",
-        "name": "debug 1",
+        "name": "debug 3",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -246,145 +524,158 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 360,
+        "x": 220,
         "y": 400,
         "wires": []
     },
     {
-        "id": "6dd0df13f4877c0c",
-        "type": "ui_audio",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "group": "24f5be2db9a85742",
-        "voice": "urn:moz-tts:speechd:English%20(America)+Andy?en-US",
-        "always": "",
-        "x": 360,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "1372c9a791dec188",
-        "type": "ui_slider",
-        "z": "58b6c811a59c81cb",
-        "name": "Liters",
-        "label": "Liters",
-        "tooltip": "",
-        "group": "f4b23440ae4359f5",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "end",
-        "topic": "topic",
-        "topicType": "msg",
-        "min": 0,
-        "max": "1000",
-        "step": 1,
-        "x": 170,
-        "y": 500,
-        "wires": [
-            [
-                "005882d06909d2c4",
-                "bdb5928a31219d30"
-            ]
-        ]
-    },
-    {
-        "id": "bdb5928a31219d30",
-        "type": "ui_gauge",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "group": "f4b23440ae4359f5",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Liters amount",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "1000",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 360,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "d52c4ae194bc462d",
-        "type": "ui_media",
-        "z": "58b6c811a59c81cb",
-        "group": "1b28f15e06ab83e4",
-        "name": "Naso",
-        "width": 0,
-        "height": 0,
-        "order": 1,
-        "category": "Nasence",
-        "file": "22079421-relaxed-mature-businessman-with-hands-behind-head-sitting-on-office-chair-against-white-background.jpg",
-        "layout": "center",
-        "showcontrols": true,
-        "loop": true,
-        "onstart": false,
-        "scope": "local",
-        "tooltip": "",
-        "x": 170,
-        "y": 200,
-        "wires": [
-            [
-                "b50877fe91cd625b"
-            ]
-        ]
-    },
-    {
-        "id": "005882d06909d2c4",
+        "id": "d4749dc549106fef",
         "type": "function",
         "z": "58b6c811a59c81cb",
-        "name": "extract water",
-        "func": "var input = msg.payload;\n\nreturn console.log(\"Check time for %d liters\", input);;",
+        "name": "Hours to seconds",
+        "func": "var Countdownstart=msg.payload;\nCountdownstart = Countdownstart/3600\nreturn Countdownstart;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 500,
+        "x": 590,
+        "y": 340,
         "wires": [
             [
-                "2b6f1d6ea33fd63c"
+                "f700b61bb42c53bb"
             ]
         ]
     },
     {
-        "id": "2b6f1d6ea33fd63c",
-        "type": "serial out",
+        "id": "497d40668c7a2068",
+        "type": "jimp-image",
         "z": "58b6c811a59c81cb",
-        "name": "Water for draining",
-        "serial": "caf9b93f1850c7fa",
-        "x": 590,
-        "y": 500,
-        "wires": []
+        "name": "base64",
+        "data": "image",
+        "dataType": "msg",
+        "ret": "b64",
+        "parameter1": "{\"name\":\"print\",\"parameters\":[null,null,null,null,null,null]}",
+        "parameter1Type": "json",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 0,
+        "jimpFunction": "none",
+        "selectedJimpFunction": {
+            "name": "none",
+            "fn": "none",
+            "description": "Just loads the image.",
+            "parameters": []
+        },
+        "x": 620,
+        "y": 580,
+        "wires": [
+            [
+                "f8e6a0541ceb7cef"
+            ]
+        ]
     },
     {
-        "id": "b50877fe91cd625b",
-        "type": "debug",
+        "id": "6e538d448fe18fc9",
+        "type": "ui_text_input",
         "z": "58b6c811a59c81cb",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 360,
-        "y": 160,
-        "wires": []
+        "name": "",
+        "label": "Hours",
+        "tooltip": "",
+        "group": "f4b23440ae4359f5",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "d4749dc549106fef"
+            ]
+        ]
+    },
+    {
+        "id": "9cb1fd8e89e218cd",
+        "type": "ui_text_input",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "label": "Minutes",
+        "tooltip": "",
+        "group": "f4b23440ae4359f5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "74ec7eca1bd47643"
+            ]
+        ]
+    },
+    {
+        "id": "74ec7eca1bd47643",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "minutes to seconds",
+        "func": "var Countdownstart1=msg.payload;\nCountdownstart1 = Countdownstart1/60\nreturn Countdownstart1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 380,
+        "wires": [
+            [
+                "f700b61bb42c53bb"
+            ]
+        ]
+    },
+    {
+        "id": "f8e6a0541ceb7cef",
+        "type": "ui_template",
+        "z": "58b6c811a59c81cb",
+        "group": "1b28f15e06ab83e4",
+        "name": "",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "format": "<div>\n    <img src={{msg.payload}}\n    width=\"400\" \n    height=\"500\"/>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 880,
+        "y": 580,
+        "wires": [
+            []
+        ]
     }
 ]
