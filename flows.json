@@ -173,6 +173,46 @@
         "className": ""
     },
     {
+        "id": "cbf91c0782859d81",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyS14",
+        "serialbaud": "57600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "c4827efd67c08bed",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyS10",
+        "serialbaud": "57600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
         "id": "170211c5f81fec88",
         "type": "ui_time_scheduler",
         "z": "58b6c811a59c81cb",
@@ -181,30 +221,39 @@
         "startDay": "4",
         "refresh": 60,
         "devices": [
-            "Device 1",
-            "Device 2",
-            "Device 3"
+            "Device 1"
         ],
         "singleOff": true,
         "onlySendChange": false,
         "customPayload": false,
-        "eventMode": false,
-        "eventOptions": [],
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            },
+            {
+                "label": "Off",
+                "event": "false"
+            }
+        ],
         "sendTopic": false,
         "lat": "48",
         "lon": "15",
         "customContextStore": "",
-        "outputs": 4,
+        "outputs": 2,
         "order": 0,
         "width": 0,
         "height": 0,
-        "x": 650,
-        "y": 260,
+        "x": 370,
+        "y": 200,
         "wires": [
-            [],
-            [],
-            [],
-            []
+            [
+                "6b9be259bc132cbf"
+            ],
+            [
+                "6b9be259bc132cbf"
+            ]
         ]
     },
     {
@@ -272,7 +321,9 @@
         "x": 370,
         "y": 300,
         "wires": [
-            []
+            [
+                "6b9be259bc132cbf"
+            ]
         ]
     },
     {
@@ -315,7 +366,7 @@
         "className": "",
         "topicType": "msg",
         "x": 170,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "c01be2495c4b7a2f"
@@ -342,7 +393,7 @@
         "step": 1,
         "className": "",
         "x": 330,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "17f4c6ccf95a253d",
@@ -363,7 +414,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "2ac2fc9bec3643bc"
@@ -395,7 +446,7 @@
         "diff": false,
         "className": "",
         "x": 510,
-        "y": 500,
+        "y": 460,
         "wires": []
     },
     {
@@ -405,14 +456,14 @@
         "name": "Extracting water",
         "serial": "",
         "x": 700,
-        "y": 440,
+        "y": 420,
         "wires": []
     },
     {
         "id": "f96a5e0e7bae88e5",
         "type": "ui_text_input",
         "z": "58b6c811a59c81cb",
-        "name": "Temprature Easy",
+        "name": "Degrees wanted",
         "label": "degrees wanted",
         "tooltip": "",
         "group": "12ef673410c8cbcd",
@@ -426,8 +477,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 170,
-        "y": 580,
+        "x": 180,
+        "y": 620,
         "wires": [
             [
                 "38ad2d0d64c8f093"
@@ -453,31 +504,12 @@
         "max": "50",
         "step": 1,
         "className": "",
-        "x": 350,
-        "y": 620,
+        "x": 330,
+        "y": 520,
         "wires": [
             [
-                "d57d3c61344c8cf7",
                 "d86ec0fdc071f005"
             ]
-        ]
-    },
-    {
-        "id": "d57d3c61344c8cf7",
-        "type": "function",
-        "z": "58b6c811a59c81cb",
-        "name": "function 2",
-        "func": "var input=msg.payload;\n\nreturn console.log(\"Temperature:%d\", input);",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 620,
-        "wires": [
-            []
         ]
     },
     {
@@ -505,7 +537,7 @@
         "diff": false,
         "className": "",
         "x": 510,
-        "y": 680,
+        "y": 520,
         "wires": []
     },
     {
@@ -513,9 +545,9 @@
         "type": "serial out",
         "z": "58b6c811a59c81cb",
         "name": "Heating",
-        "serial": "",
-        "x": 680,
-        "y": 620,
+        "serial": "c4827efd67c08bed",
+        "x": 620,
+        "y": 580,
         "wires": []
     },
     {
@@ -523,29 +555,64 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 3",
-        "func": "var temp=msg.payload;\nvar now=\nif(temp<)\nreturn msg;",
+        "func": "var temp=msg.payload;\nvar now=0;\nif(now<temp)\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
-        "noerr": 2,
+        "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 400,
         "y": 580,
         "wires": [
-            []
+            [
+                "55ad258672f39bff"
+            ]
         ]
     },
     {
         "id": "ad36dc8c1884db2d",
         "type": "serial in",
         "z": "58b6c811a59c81cb",
-        "x": 130,
+        "name": "",
+        "serial": "cbf91c0782859d81",
+        "x": 140,
         "y": 520,
         "wires": [
             [
-                "38ad2d0d64c8f093"
+                "38ad2d0d64c8f093",
+                "2c10fdfc98d1368e"
             ]
         ]
+    },
+    {
+        "id": "6b9be259bc132cbf",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 4",
+        "func": "var check=msg.payload;\nif(check==true){\nreturn console.log(\"feeding 15\");\n}\nelse {return console.log(\"It's not time yet\");}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 280,
+        "wires": [
+            [
+                "c28f28ee1884cf01"
+            ]
+        ]
+    },
+    {
+        "id": "c28f28ee1884cf01",
+        "type": "serial out",
+        "z": "58b6c811a59c81cb",
+        "name": "Is it time to feed",
+        "serial": "cbf91c0782859d81",
+        "x": 740,
+        "y": 280,
+        "wires": []
     }
 ]
