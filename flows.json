@@ -169,6 +169,26 @@
         "collapse": false
     },
     {
+        "id": "caf9b93f1850c7fa",
+        "type": "serial-port",
+        "name": "First serial port",
+        "serialport": "",
+        "serialbaud": "57600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
         "id": "cac594fa3c5772dd",
         "type": "ui_button",
         "z": "58b6c811a59c81cb",
@@ -254,7 +274,7 @@
         "width": 0,
         "height": 0,
         "passthru": true,
-        "outs": "all",
+        "outs": "end",
         "topic": "topic",
         "topicType": "msg",
         "min": 0,
@@ -264,6 +284,7 @@
         "y": 500,
         "wires": [
             [
+                "005882d06909d2c4",
                 "bdb5928a31219d30"
             ]
         ]
@@ -290,8 +311,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 380,
-        "y": 500,
+        "x": 360,
+        "y": 560,
         "wires": []
     },
     {
@@ -299,12 +320,12 @@
         "type": "ui_media",
         "z": "58b6c811a59c81cb",
         "group": "1b28f15e06ab83e4",
-        "name": "",
+        "name": "Naso",
         "width": 0,
         "height": 0,
         "order": 1,
         "category": "Nasence",
-        "file": "viber_image_2024-03-13_09-36-42-601.png",
+        "file": "22079421-relaxed-mature-businessman-with-hands-behind-head-sitting-on-office-chair-against-white-background.jpg",
         "layout": "center",
         "showcontrols": true,
         "loop": true,
@@ -312,36 +333,58 @@
         "scope": "local",
         "tooltip": "",
         "x": 170,
-        "y": 180,
+        "y": 200,
         "wires": [
-            []
+            [
+                "b50877fe91cd625b"
+            ]
         ]
     },
     {
-        "id": "6ee6cdafa3bc541d",
-        "type": "ui_button",
+        "id": "005882d06909d2c4",
+        "type": "function",
         "z": "58b6c811a59c81cb",
-        "name": "",
-        "group": "71a5aaa84d122134",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "button",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "yes",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 190,
-        "y": 620,
+        "name": "extract water",
+        "func": "var input = msg.payload;\n\nreturn console.log(\"Check time for %d liters\", input);;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 500,
         "wires": [
             [
-                "bdb5928a31219d30"
+                "2b6f1d6ea33fd63c"
             ]
         ]
+    },
+    {
+        "id": "2b6f1d6ea33fd63c",
+        "type": "serial out",
+        "z": "58b6c811a59c81cb",
+        "name": "Water for draining",
+        "serial": "caf9b93f1850c7fa",
+        "x": 590,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "b50877fe91cd625b",
+        "type": "debug",
+        "z": "58b6c811a59c81cb",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 160,
+        "wires": []
     }
 ]
