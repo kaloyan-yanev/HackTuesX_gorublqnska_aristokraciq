@@ -1,1 +1,303 @@
-[]
+[
+    {
+        "id": "58b6c811a59c81cb",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "934796285c75619e",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f4b23440ae4359f5",
+        "type": "ui_group",
+        "name": "How many liters",
+        "tab": "934796285c75619e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "832564132aeb2b31",
+        "type": "ui_tab",
+        "name": "Liters",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "24f5be2db9a85742",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "934796285c75619e",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "71a5aaa84d122134",
+        "type": "ui_group",
+        "name": "How Many Liters",
+        "tab": "832564132aeb2b31",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "987bfdb1d572ce84",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "cac594fa3c5772dd",
+        "type": "ui_button",
+        "z": "58b6c811a59c81cb",
+        "name": "Button",
+        "group": "24f5be2db9a85742",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "home ",
+        "payloadType": "str",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "a45b020e7d1b04bb",
+                "c5c5be798562c680",
+                "6dd0df13f4877c0c",
+                "d52c4ae194bc462d"
+            ]
+        ]
+    },
+    {
+        "id": "a45b020e7d1b04bb",
+        "type": "ui_text",
+        "z": "58b6c811a59c81cb",
+        "group": "24f5be2db9a85742",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 390,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c5c5be798562c680",
+        "type": "debug",
+        "z": "58b6c811a59c81cb",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6dd0df13f4877c0c",
+        "type": "ui_audio",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "group": "24f5be2db9a85742",
+        "voice": "",
+        "always": "",
+        "x": 340,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1372c9a791dec188",
+        "type": "ui_slider",
+        "z": "58b6c811a59c81cb",
+        "name": "Liters",
+        "label": "Liters",
+        "tooltip": "",
+        "group": "f4b23440ae4359f5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "200",
+        "step": 1,
+        "x": 170,
+        "y": 500,
+        "wires": [
+            [
+                "bdb5928a31219d30"
+            ]
+        ]
+    },
+    {
+        "id": "bdb5928a31219d30",
+        "type": "ui_gauge",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "group": "f4b23440ae4359f5",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Liters amount",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 380,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "d52c4ae194bc462d",
+        "type": "ui_media",
+        "z": "58b6c811a59c81cb",
+        "group": "f4b23440ae4359f5",
+        "name": "",
+        "width": 0,
+        "height": 0,
+        "order": 2,
+        "category": "Nasence",
+        "file": "viber_image_2024-03-13_09-36-42-601.png",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "scope": "local",
+        "tooltip": "",
+        "x": 370,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    }
+]
