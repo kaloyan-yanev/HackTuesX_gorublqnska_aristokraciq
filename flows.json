@@ -151,6 +151,16 @@
         }
     },
     {
+        "id": "1a59e0d91aeed44e",
+        "type": "ui_group",
+        "name": "Nas",
+        "tab": "934796285c75619e",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
         "id": "cac594fa3c5772dd",
         "type": "ui_button",
         "z": "58b6c811a59c81cb",
@@ -165,7 +175,7 @@
         "color": "",
         "bgcolor": "",
         "icon": "",
-        "payload": "home ",
+        "payload": "begin",
         "payloadType": "str",
         "topic": "payload",
         "topicType": "msg",
@@ -175,8 +185,7 @@
             [
                 "a45b020e7d1b04bb",
                 "c5c5be798562c680",
-                "6dd0df13f4877c0c",
-                "d52c4ae194bc462d"
+                "6dd0df13f4877c0c"
             ]
         ]
     },
@@ -192,8 +201,8 @@
         "label": "text",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 390,
-        "y": 260,
+        "x": 370,
+        "y": 320,
         "wires": []
     },
     {
@@ -210,7 +219,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 360,
+        "y": 380,
         "wires": []
     },
     {
@@ -219,10 +228,10 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "group": "24f5be2db9a85742",
-        "voice": "",
+        "voice": "urn:moz-tts:speechd:English%20(America)+Andy?en-US",
         "always": "",
-        "x": 340,
-        "y": 160,
+        "x": 380,
+        "y": 260,
         "wires": []
     },
     {
@@ -241,13 +250,14 @@
         "topic": "topic",
         "topicType": "msg",
         "min": 0,
-        "max": "200",
+        "max": "1000",
         "step": 1,
-        "x": 170,
+        "x": 190,
         "y": 500,
         "wires": [
             [
-                "bdb5928a31219d30"
+                "bdb5928a31219d30",
+                "e77276f518470cdb"
             ]
         ]
     },
@@ -265,7 +275,7 @@
         "label": "units",
         "format": "{{value}}",
         "min": 0,
-        "max": "200",
+        "max": "1000",
         "colors": [
             "#00b500",
             "#e6e600",
@@ -273,7 +283,7 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 380,
+        "x": 400,
         "y": 500,
         "wires": []
     },
@@ -281,21 +291,39 @@
         "id": "d52c4ae194bc462d",
         "type": "ui_media",
         "z": "58b6c811a59c81cb",
-        "group": "f4b23440ae4359f5",
+        "group": "24f5be2db9a85742",
         "name": "",
         "width": 0,
         "height": 0,
-        "order": 2,
+        "order": 1,
         "category": "Nasence",
         "file": "viber_image_2024-03-13_09-36-42-601.png",
-        "layout": "adjust",
+        "layout": "center",
         "showcontrols": true,
         "loop": true,
-        "onstart": false,
+        "onstart": true,
         "scope": "local",
         "tooltip": "",
-        "x": 370,
-        "y": 420,
+        "x": 850,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e77276f518470cdb",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 1",
+        "func": "let a\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 580,
         "wires": [
             []
         ]
