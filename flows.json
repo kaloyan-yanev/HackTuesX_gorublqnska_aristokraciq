@@ -8,64 +8,19 @@
         "env": []
     },
     {
-        "id": "6dcc05dddfd51fca",
-        "type": "tab",
-        "label": "Flow 2",
-        "disabled": true,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "934796285c75619e",
+        "id": "567818b532b20952",
         "type": "ui_tab",
-        "name": "Home",
+        "name": "Food Dispenser",
         "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
     {
-        "id": "f4b23440ae4359f5",
-        "type": "ui_group",
-        "name": "When food",
-        "tab": "934796285c75619e",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "832564132aeb2b31",
-        "type": "ui_tab",
-        "name": "Liters",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "24f5be2db9a85742",
-        "type": "ui_group",
-        "name": "Button",
-        "tab": "934796285c75619e",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "71a5aaa84d122134",
-        "type": "ui_group",
-        "name": "How Many Liters",
-        "tab": "832564132aeb2b31",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "987bfdb1d572ce84",
+        "id": "95e967ec8fbcf837",
         "type": "ui_base",
         "theme": {
-            "name": "theme-dark",
+            "name": "theme-custom",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -77,35 +32,35 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
+                "edited": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
                 "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                "baseColor": "#016983",
+                "baseFont": "Verdana,Verdana,Geneva,sans-serif",
+                "reset": false
             },
             "themeState": {
                 "base-color": {
-                    "default": "#097479",
-                    "value": "#097479",
-                    "edited": false
+                    "default": "#4B7930",
+                    "value": "#016983",
+                    "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#097479",
+                    "value": "#016983",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#111111",
-                    "edited": false
+                    "value": "#000d33",
+                    "edited": true
                 },
                 "page-sidebar-backgroundColor": {
                     "value": "#333333",
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#0eb8c0",
+                    "value": "#02a6cf",
                     "edited": false
                 },
                 "group-borderColor": {
@@ -121,7 +76,7 @@
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#097479",
+                    "value": "#016983",
                     "edited": false
                 },
                 "widget-borderColor": {
@@ -129,7 +84,7 @@
                     "edited": false
                 },
                 "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                    "value": "Verdana,Verdana,Geneva,sans-serif"
                 }
             },
             "angularTheme": {
@@ -160,21 +115,93 @@
         }
     },
     {
-        "id": "1b28f15e06ab83e4",
+        "id": "c0ada8f56c21604a",
         "type": "ui_group",
-        "name": "Nasko",
-        "tab": "832564132aeb2b31",
-        "order": 3,
+        "name": "Lights on",
+        "tab": "435ea9b68a7088e3",
+        "order": 1,
         "disp": true,
-        "width": "20",
-        "collapse": false
+        "width": "8",
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "caf9b93f1850c7fa",
+        "id": "0f714a2baa645c3f",
+        "type": "ui_tab",
+        "name": "Water",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "bde92985be657294",
+        "type": "ui_group",
+        "name": "gauge",
+        "tab": "0f714a2baa645c3f",
+        "order": 1,
+        "disp": false,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "292a8341e8e17273",
+        "type": "ui_group",
+        "name": "Food Dispenser",
+        "tab": "567818b532b20952",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "92fc251722c2b1a7",
+        "type": "ui_tab",
+        "name": "Temperature",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "12ef673410c8cbcd",
+        "type": "ui_group",
+        "name": "gauge",
+        "tab": "92fc251722c2b1a7",
+        "order": 1,
+        "disp": false,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cbf91c0782859d81",
         "type": "serial-port",
-        "name": "First serial port",
-        "serialport": "",
-        "serialbaud": "57600",
+        "name": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\r",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "c4827efd67c08bed",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
         "databits": "8",
         "parity": "none",
         "stopbits": "1",
@@ -190,44 +217,253 @@
         "responsetimeout": "10000"
     },
     {
-        "id": "1372c9a791dec188",
+        "id": "435ea9b68a7088e3",
+        "type": "ui_tab",
+        "name": "Lights",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c0b1a7eec0dbda03",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "15",
+        "bin": "false",
+        "out": "time",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "4b77d66591329d0b",
+        "type": "ui_group",
+        "name": "Lights off",
+        "tab": "435ea9b68a7088e3",
+        "order": 3,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dfb86175cc93c97d",
+        "type": "ui_group",
+        "name": "Set timer",
+        "tab": "567818b532b20952",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "170211c5f81fec88",
+        "type": "ui_time_scheduler",
+        "z": "58b6c811a59c81cb",
+        "group": "dfb86175cc93c97d",
+        "name": "Timer",
+        "startDay": "4",
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": true,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            },
+            {
+                "label": "Off",
+                "event": "false"
+            }
+        ],
+        "sendTopic": false,
+        "lat": "48",
+        "lon": "15",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "6b9be259bc132cbf"
+            ],
+            [
+                "6b9be259bc132cbf"
+            ]
+        ]
+    },
+    {
+        "id": "a1bf0d75f2d3cf8c",
+        "type": "ui_button",
+        "z": "58b6c811a59c81cb",
+        "name": "Start feeding",
+        "group": "292a8341e8e17273",
+        "order": 1,
+        "width": "8",
+        "height": "2",
+        "passthru": false,
+        "label": "<font size=6>Start feeding",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "starting",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "564240a4240b9bac",
+                "fd9490d66a67aba7"
+            ]
+        ]
+    },
+    {
+        "id": "564240a4240b9bac",
+        "type": "debug",
+        "z": "58b6c811a59c81cb",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fd9490d66a67aba7",
+        "type": "ui_text",
+        "z": "58b6c811a59c81cb",
+        "group": "292a8341e8e17273",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Starting",
+        "label": "Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 380,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "58744b4361813593",
+        "type": "ui_text_input",
+        "z": "58b6c811a59c81cb",
+        "name": "Water easy",
+        "label": "Liters",
+        "tooltip": "",
+        "group": "bde92985be657294",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "c01be2495c4b7a2f"
+            ]
+        ]
+    },
+    {
+        "id": "c01be2495c4b7a2f",
         "type": "ui_slider",
         "z": "58b6c811a59c81cb",
-        "name": "Liters",
+        "name": "Water",
         "label": "Water",
         "tooltip": "",
-        "group": "71a5aaa84d122134",
+        "group": "bde92985be657294",
         "order": 1,
         "width": 0,
         "height": 0,
         "passthru": true,
         "outs": "end",
         "topic": "topic",
-        "topicType": "msg",
+        "topicType": "str",
         "min": 0,
         "max": "1000",
         "step": 1,
-        "x": 370,
-        "y": 460,
+        "className": "",
+        "x": 330,
+        "y": 420,
         "wires": [
             [
-                "005882d06909d2c4",
-                "bdb5928a31219d30"
+                "2f703281d3d8aeb1",
+                "17f4c6ccf95a253d"
             ]
         ]
     },
     {
-        "id": "bdb5928a31219d30",
+        "id": "17f4c6ccf95a253d",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 1",
+        "func": "var lit=msg.payload;\nmsg.payload='Liters %d', lit;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "b3a9285f21117083"
+            ]
+        ]
+    },
+    {
+        "id": "2f703281d3d8aeb1",
         "type": "ui_gauge",
         "z": "58b6c811a59c81cb",
         "name": "",
-        "group": "71a5aaa84d122134",
+        "group": "bde92985be657294",
         "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "Liters amount",
-        "label": "liters",
+        "title": "Water",
+        "label": "Liters",
         "format": "{{value}}",
         "min": 0,
         "max": "1000",
@@ -238,390 +474,30 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 640,
-        "y": 480,
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 460,
         "wires": []
     },
     {
-        "id": "005882d06909d2c4",
-        "type": "function",
-        "z": "58b6c811a59c81cb",
-        "name": "extract water",
-        "func": "var input = msg.payload;\n\nreturn console.log(\"Check time for %d liters\", input);;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 440,
-        "wires": [
-            [
-                "2b6f1d6ea33fd63c"
-            ]
-        ]
-    },
-    {
-        "id": "2b6f1d6ea33fd63c",
+        "id": "2ac2fc9bec3643bc",
         "type": "serial out",
         "z": "58b6c811a59c81cb",
-        "name": "Water for draining",
-        "serial": "caf9b93f1850c7fa",
-        "x": 910,
-        "y": 440,
+        "name": "Extracting water",
+        "serial": "c0b1a7eec0dbda03",
+        "x": 740,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "b50877fe91cd625b",
-        "type": "debug",
-        "z": "58b6c811a59c81cb",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "76ee91d934f64c7b",
-        "type": "function",
-        "z": "58b6c811a59c81cb",
-        "name": "function 1",
-        "func": "var i=0;\nfor(i=0;i<1000000000;i++)\n   \nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 960,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "37e5e756acd81fcb",
+        "id": "f96a5e0e7bae88e5",
         "type": "ui_text_input",
         "z": "58b6c811a59c81cb",
-        "name": "",
-        "label": "",
+        "name": "Degrees wanted",
+        "label": "degrees wanted",
         "tooltip": "",
-        "group": "71a5aaa84d122134",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "mode": "number",
-        "delay": 300,
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 150,
-        "y": 460,
-        "wires": [
-            [
-                "1372c9a791dec188"
-            ]
-        ]
-    },
-    {
-        "id": "4740c8f9a36363e7",
-        "type": "ui_upload_mf",
-        "z": "58b6c811a59c81cb",
-        "title": "upload-mf",
-        "name": "",
-        "order": 0,
-        "width": 0,
-        "height": 5,
-        "chunk": 256,
-        "transfer": "binary",
-        "x": 140,
-        "y": 180,
-        "wires": [
-            [
-                "b50877fe91cd625b"
-            ]
-        ]
-    },
-    {
-        "id": "48dbc2e2f27386b3",
-        "type": "jimp-image",
-        "z": "58b6c811a59c81cb",
-        "name": "Get image",
-        "data": "image",
-        "dataType": "msg",
-        "ret": "img",
-        "parameter1": "",
-        "parameter1Type": "msg",
-        "parameter2": "",
-        "parameter2Type": "msg",
-        "parameter3": "",
-        "parameter3Type": "msg",
-        "parameter4": "",
-        "parameter4Type": "msg",
-        "parameter5": "",
-        "parameter5Type": "msg",
-        "parameter6": "",
-        "parameter6Type": "msg",
-        "parameter7": "",
-        "parameter7Type": "msg",
-        "parameter8": "",
-        "parameter8Type": "msg",
-        "sendProperty": "image",
-        "sendPropertyType": "msg",
-        "parameterCount": 0,
-        "jimpFunction": "none",
-        "selectedJimpFunction": {
-            "name": "none",
-            "fn": "none",
-            "description": "Just loads the image.",
-            "parameters": []
-        },
-        "x": 390,
-        "y": 580,
-        "wires": [
-            [
-                "19a5e70376b4556f",
-                "497d40668c7a2068"
-            ]
-        ]
-    },
-    {
-        "id": "19a5e70376b4556f",
-        "type": "image viewer",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "width": "100",
-        "data": "image",
-        "dataType": "msg",
-        "active": true,
-        "x": 370,
-        "y": 660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ac29ce93398c6123",
-        "type": "inject",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            },
-            {
-                "p": "image",
-                "v": "https://previews.123rf.com/images/tmcphotos/tmcphotos1309/tmcphotos130900349/22079421-relaxed-mature-businessman-with-hands-behind-head-sitting-on-office-chair-against-white-background.jpg",
-                "vt": "str"
-            },
-            {
-                "p": "qr",
-                "v": "Nasko",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "0.01",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 580,
-        "wires": [
-            [
-                "48dbc2e2f27386b3"
-            ]
-        ]
-    },
-    {
-        "id": "f700b61bb42c53bb",
-        "type": "timer-node",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "topic": "",
-        "timer": "",
-        "payloadOn": "true",
-        "payloadOnType": "bool",
-        "payloadOff": "true",
-        "payloadOffType": "bool",
-        "x": 790,
-        "y": 360,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "2b28c33ef130f990",
-        "type": "ui_button",
-        "z": "58b6c811a59c81cb",
-        "name": "Button",
-        "group": "24f5be2db9a85742",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "button",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "begin",
-        "payloadType": "str",
-        "topic": "payload",
-        "topicType": "msg",
-        "x": 70,
-        "y": 360,
-        "wires": [
-            [
-                "bd59e909789855f6",
-                "9034d7966ea1d1e7",
-                "6e538d448fe18fc9",
-                "9cb1fd8e89e218cd"
-            ]
-        ]
-    },
-    {
-        "id": "bd59e909789855f6",
-        "type": "ui_text",
-        "z": "58b6c811a59c81cb",
-        "group": "24f5be2db9a85742",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "text",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 210,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "9034d7966ea1d1e7",
-        "type": "debug",
-        "z": "58b6c811a59c81cb",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 220,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "d4749dc549106fef",
-        "type": "function",
-        "z": "58b6c811a59c81cb",
-        "name": "Hours to seconds",
-        "func": "var Countdownstart=msg.payload;\nCountdownstart = Countdownstart/3600\nreturn Countdownstart;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 590,
-        "y": 340,
-        "wires": [
-            [
-                "f700b61bb42c53bb"
-            ]
-        ]
-    },
-    {
-        "id": "497d40668c7a2068",
-        "type": "jimp-image",
-        "z": "58b6c811a59c81cb",
-        "name": "base64",
-        "data": "image",
-        "dataType": "msg",
-        "ret": "b64",
-        "parameter1": "{\"name\":\"print\",\"parameters\":[null,null,null,null,null,null]}",
-        "parameter1Type": "json",
-        "parameter2": "",
-        "parameter2Type": "msg",
-        "parameter3": "",
-        "parameter3Type": "msg",
-        "parameter4": "",
-        "parameter4Type": "msg",
-        "parameter5": "",
-        "parameter5Type": "msg",
-        "parameter6": "",
-        "parameter6Type": "msg",
-        "parameter7": "",
-        "parameter7Type": "msg",
-        "parameter8": "",
-        "parameter8Type": "msg",
-        "sendProperty": "payload",
-        "sendPropertyType": "msg",
-        "parameterCount": 0,
-        "jimpFunction": "none",
-        "selectedJimpFunction": {
-            "name": "none",
-            "fn": "none",
-            "description": "Just loads the image.",
-            "parameters": []
-        },
-        "x": 620,
-        "y": 580,
-        "wires": [
-            [
-                "f8e6a0541ceb7cef"
-            ]
-        ]
-    },
-    {
-        "id": "6e538d448fe18fc9",
-        "type": "ui_text_input",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "label": "Hours",
-        "tooltip": "",
-        "group": "f4b23440ae4359f5",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "mode": "text",
-        "delay": 300,
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 390,
-        "y": 340,
-        "wires": [
-            [
-                "d4749dc549106fef"
-            ]
-        ]
-    },
-    {
-        "id": "9cb1fd8e89e218cd",
-        "type": "ui_text_input",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "label": "Minutes",
-        "tooltip": "",
-        "group": "f4b23440ae4359f5",
+        "group": "12ef673410c8cbcd",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -629,53 +505,396 @@
         "mode": "text",
         "delay": 300,
         "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
         "topicType": "msg",
-        "x": 400,
-        "y": 380,
+        "x": 160,
+        "y": 580,
         "wires": [
             [
-                "74ec7eca1bd47643"
+                "55ad258672f39bff"
             ]
         ]
     },
     {
-        "id": "74ec7eca1bd47643",
+        "id": "2c10fdfc98d1368e",
+        "type": "ui_slider",
+        "z": "58b6c811a59c81cb",
+        "name": "Temprature",
+        "label": "Temperature",
+        "tooltip": "",
+        "group": "12ef673410c8cbcd",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "60",
+        "step": 1,
+        "className": "",
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "d86ec0fdc071f005"
+            ]
+        ]
+    },
+    {
+        "id": "d86ec0fdc071f005",
+        "type": "ui_gauge",
+        "z": "58b6c811a59c81cb",
+        "name": "°C",
+        "group": "12ef673410c8cbcd",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 590,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "55ad258672f39bff",
+        "type": "serial out",
+        "z": "58b6c811a59c81cb",
+        "name": "Heating",
+        "serial": "c4827efd67c08bed",
+        "x": 520,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ad36dc8c1884db2d",
+        "type": "serial in",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "serial": "cbf91c0782859d81",
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "85e0d0836d456e32"
+            ]
+        ]
+    },
+    {
+        "id": "6b9be259bc132cbf",
         "type": "function",
         "z": "58b6c811a59c81cb",
-        "name": "minutes to seconds",
-        "func": "var Countdownstart1=msg.payload;\nCountdownstart1 = Countdownstart1/60\nreturn Countdownstart1;",
+        "name": "function 4",
+        "func": "var check=msg.payload;\nif(check==true){\nreturn console.log(\"feeding 15\");\n}\nelse {return console.log(\"It's not time yet\");}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 380,
+        "x": 540,
+        "y": 200,
         "wires": [
             [
-                "f700b61bb42c53bb"
+                "c28f28ee1884cf01"
             ]
         ]
     },
     {
-        "id": "f8e6a0541ceb7cef",
-        "type": "ui_template",
+        "id": "c28f28ee1884cf01",
+        "type": "serial out",
         "z": "58b6c811a59c81cb",
-        "group": "1b28f15e06ab83e4",
+        "name": "Is it time to feed",
+        "serial": "cbf91c0782859d81",
+        "x": 800,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "99b695e963d1b8e7",
+        "type": "ui_time_scheduler",
+        "z": "58b6c811a59c81cb",
+        "group": "c0ada8f56c21604a",
+        "name": "Lights on",
+        "startDay": 0,
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": false,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            },
+            {
+                "label": "Off",
+                "event": "false"
+            }
+        ],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "743e148b214ec0bc"
+            ],
+            [
+                "743e148b214ec0bc"
+            ]
+        ]
+    },
+    {
+        "id": "743e148b214ec0bc",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 5",
+        "func": "var input=msg.payload;\n\nif(input==true){\nreturn console.log(\"lights 1\");\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 740,
+        "wires": [
+            [
+                "d7b679c07ddb1ea8"
+            ]
+        ]
+    },
+    {
+        "id": "d7b679c07ddb1ea8",
+        "type": "serial out",
+        "z": "58b6c811a59c81cb",
         "name": "",
-        "order": 5,
-        "width": "0",
-        "height": "0",
-        "format": "<div>\n    <img src={{msg.payload}}\n    width=\"400\" \n    height=\"500\"/>\n</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 880,
-        "y": 580,
+        "serial": "c4827efd67c08bed",
+        "x": 550,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "e3510e01f3808818",
+        "type": "ui_time_scheduler",
+        "z": "58b6c811a59c81cb",
+        "group": "4b77d66591329d0b",
+        "name": "lights off",
+        "startDay": 0,
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": false,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            },
+            {
+                "label": "Off",
+                "event": "false"
+            }
+        ],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 160,
+        "y": 800,
+        "wires": [
+            [
+                "b0d3812797700802"
+            ],
+            [
+                "b0d3812797700802"
+            ]
+        ]
+    },
+    {
+        "id": "b0d3812797700802",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 6",
+        "func": "var input=msg.payload;\n\nif(input==true){\nreturn console.log(\"lights 0\");\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 800,
+        "wires": [
+            [
+                "fcfec8f3c5984b77"
+            ]
+        ]
+    },
+    {
+        "id": "fcfec8f3c5984b77",
+        "type": "serial out",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "serial": "c4827efd67c08bed",
+        "x": 560,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "756d54529b94fc1e",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 7",
+        "func": "var check=msg.payload;\nreturn console.log(\"feed 14\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 300,
+        "wires": [
+            [
+                "c28f28ee1884cf01"
+            ]
+        ]
+    },
+    {
+        "id": "4d3dabb1f29fdf30",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 8",
+        "func": "var temp=msg.payload;\n\nreturn console.log(\"Wanted %d\", temp);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 640,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "85e0d0836d456e32",
+        "type": "json",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "2c10fdfc98d1368e"
+            ]
+        ]
+    },
+    {
+        "id": "c5a147778449e474",
+        "type": "ui_media",
+        "z": "58b6c811a59c81cb",
+        "group": "292a8341e8e17273",
+        "name": "",
+        "width": 0,
+        "height": 0,
+        "order": 2,
+        "category": "Nasence",
+        "file": "IvanKralov-max_1840.jpg",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "scope": "local",
+        "tooltip": "",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02b4a9cea9b92e2b",
+        "type": "serial in",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "serial": "cbf91c0782859d81",
+        "x": 910,
+        "y": 420,
+        "wires": [
+            [
+                "6b5d05b194549c42"
+            ]
+        ]
+    },
+    {
+        "id": "6b5d05b194549c42",
+        "type": "debug",
+        "z": "58b6c811a59c81cb",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b3a9285f21117083",
+        "type": "json",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 630,
+        "y": 360,
+        "wires": [
+            [
+                "2ac2fc9bec3643bc"
+            ]
         ]
     }
 ]
