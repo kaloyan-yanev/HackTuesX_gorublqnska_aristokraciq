@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "c882fe75d4acae11",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "567818b532b20952",
         "type": "ui_tab",
         "name": "Food Dispenser",
@@ -156,11 +164,11 @@
     {
         "id": "292a8341e8e17273",
         "type": "ui_group",
-        "name": "Food Dispenser",
+        "name": "Start Feeding",
         "tab": "567818b532b20952",
         "order": 1,
         "disp": true,
-        "width": 8,
+        "width": "8",
         "collapse": false,
         "className": ""
     },
@@ -172,17 +180,6 @@
         "order": 3,
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "12ef673410c8cbcd",
-        "type": "ui_group",
-        "name": "gauge",
-        "tab": "92fc251722c2b1a7",
-        "order": 1,
-        "disp": false,
-        "width": "8",
-        "collapse": false,
-        "className": ""
     },
     {
         "id": "cbf91c0782859d81",
@@ -287,6 +284,70 @@
         "className": ""
     },
     {
+        "id": "1fefa997f2b92291",
+        "type": "ui_group",
+        "name": "Temprature in bucket",
+        "tab": "92fc251722c2b1a7",
+        "order": 2,
+        "disp": true,
+        "width": 11,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4587b94d4484a9ce",
+        "type": "ui_group",
+        "name": "Wanted temprature",
+        "tab": "92fc251722c2b1a7",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a42ebdf6c6814df0",
+        "type": "ui_spacer",
+        "z": "58b6c811a59c81cb",
+        "name": "spacer",
+        "group": "12ef673410c8cbcd",
+        "order": 1,
+        "width": 10,
+        "height": 1
+    },
+    {
+        "id": "f05c9b260fb65aca",
+        "type": "ui_spacer",
+        "z": "58b6c811a59c81cb",
+        "name": "spacer",
+        "group": "12ef673410c8cbcd",
+        "order": 3,
+        "width": "10",
+        "height": "1"
+    },
+    {
+        "id": "caf55d5cb2bc9ed7",
+        "type": "ui_group",
+        "name": "Temprature status:",
+        "tab": "92fc251722c2b1a7",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c796091d1eec4740",
+        "type": "ui_group",
+        "name": "Water in Aquarium",
+        "tab": "92fc251722c2b1a7",
+        "order": 4,
+        "disp": true,
+        "width": 11,
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "3a4005b7867bff45",
         "type": "ui_time_scheduler",
         "z": "58b6c811a59c81cb",
@@ -344,7 +405,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
+        "x": 145,
         "y": 360,
         "wires": [
             [
@@ -352,7 +413,8 @@
                 "381e33ac35357bb1",
                 "3be229bf4897dcc8"
             ]
-        ]
+        ],
+        "l": false
     },
     {
         "id": "c4775fb416771cc5",
@@ -511,8 +573,8 @@
         "name": "Degrees wanted",
         "label": "degrees wanted",
         "tooltip": "",
-        "group": "12ef673410c8cbcd",
-        "order": 3,
+        "group": "4587b94d4484a9ce",
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -522,8 +584,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 200,
-        "y": 600,
+        "x": 190,
+        "y": 700,
         "wires": [
             [
                 "78208f45e9bd2ea9"
@@ -531,58 +593,31 @@
         ]
     },
     {
-        "id": "0f39701a72d8c3a0",
-        "type": "ui_slider",
-        "z": "58b6c811a59c81cb",
-        "name": "Temprature",
-        "label": "Temperature",
-        "tooltip": "",
-        "group": "12ef673410c8cbcd",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "outs": "all",
-        "topic": "topic",
-        "topicType": "msg",
-        "min": 0,
-        "max": "60",
-        "step": 1,
-        "className": "",
-        "x": 490,
-        "y": 540,
-        "wires": [
-            [
-                "d2a137c655a956c3"
-            ]
-        ]
-    },
-    {
         "id": "d2a137c655a956c3",
         "type": "ui_gauge",
         "z": "58b6c811a59c81cb",
-        "name": "°C",
-        "group": "12ef673410c8cbcd",
-        "order": 2,
+        "name": "Water in aquarium",
+        "group": "c796091d1eec4740",
+        "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "Temperature",
-        "label": "",
+        "title": "Temperature in aquarium",
+        "label": "°C",
         "format": "{{value}}",
         "min": 0,
-        "max": "60",
+        "max": "50",
         "colors": [
+            "#99c1f1",
             "#00b500",
-            "#e6e600",
             "#ca3838"
         ],
-        "seg1": "",
-        "seg2": "",
+        "seg1": "20",
+        "seg2": "30",
         "diff": false,
         "className": "",
-        "x": 670,
-        "y": 540,
+        "x": 750,
+        "y": 560,
         "wires": []
     },
     {
@@ -591,8 +626,8 @@
         "z": "58b6c811a59c81cb",
         "name": "Heating",
         "serial": "c0b1a7eec0dbda03",
-        "x": 560,
-        "y": 600,
+        "x": 550,
+        "y": 700,
         "wires": []
     },
     {
@@ -601,8 +636,8 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "cbf91c0782859d81",
-        "x": 190,
-        "y": 540,
+        "x": 170,
+        "y": 600,
         "wires": [
             [
                 "08dc2f0ac5554889"
@@ -668,8 +703,8 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "x": 180,
-        "y": 660,
+        "x": 170,
+        "y": 760,
         "wires": [
             [],
             [
@@ -689,8 +724,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 660,
+        "x": 370,
+        "y": 760,
         "wires": [
             [
                 "87104d2cab0986c0"
@@ -703,8 +738,8 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "c4827efd67c08bed",
-        "x": 560,
-        "y": 660,
+        "x": 550,
+        "y": 760,
         "wires": []
     },
     {
@@ -740,8 +775,8 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "x": 180,
-        "y": 720,
+        "x": 170,
+        "y": 820,
         "wires": [
             [],
             [
@@ -761,8 +796,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 720,
+        "x": 370,
+        "y": 820,
         "wires": [
             [
                 "0391542c631e3e50"
@@ -775,8 +810,8 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "c4827efd67c08bed",
-        "x": 560,
-        "y": 720,
+        "x": 550,
+        "y": 820,
         "wires": []
     },
     {
@@ -808,11 +843,13 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 350,
-        "y": 540,
+        "x": 330,
+        "y": 600,
         "wires": [
             [
-                "0f39701a72d8c3a0"
+                "d93f6e9f86e96591",
+                "21aaf9e7349594ed",
+                "eb1305d6baf8ccac"
             ]
         ]
     },
@@ -828,8 +865,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 600,
+        "x": 390,
+        "y": 700,
         "wires": [
             [
                 "40677c498571105a"
@@ -929,6 +966,115 @@
         "wires": []
     },
     {
+        "id": "d93f6e9f86e96591",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 31",
+        "func": "\nif(msg.payload[0] == \"I\"){\nmsg.payload.split(',')[1];\nvar Watertemp=msg.payload;\nmsg.payload = Watertemp\n}\nvar Buckettemp = 0;\nif(msg.payload[0] == \"O\"){\nBuckettemp=msg.payload;\nmsg.payload = Buckettemp;\n}\nif(Watertemp-Buckettemp>2){\n    msg.payload=\"Water is too cold\";\n    return msg;\n}\nif(Buckettemp-Watertemp>2){\n    msg.payload=\"Water it too hot\";\n    return msg.payload;\n}\nmsg.payload=\"Perfect\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 600,
+        "wires": [
+            [
+                "3cc765c434366211"
+            ]
+        ]
+    },
+    {
+        "id": "ae77e96749a87638",
+        "type": "ui_gauge",
+        "z": "58b6c811a59c81cb",
+        "name": "",
+        "group": "1fefa997f2b92291",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Water in Bucket",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#3584e4",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "21aaf9e7349594ed",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 32",
+        "func": "var Buckettemp = 0;\nif(msg.payload[0] == \"O\"){\nvar strSplit=msg.payload.split(',');\nBuckettemp=strSplit[1];\nmsg.payload = Buckettemp;\nreturn msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 640,
+        "wires": [
+            [
+                "ae77e96749a87638"
+            ]
+        ]
+    },
+    {
+        "id": "eb1305d6baf8ccac",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 33",
+        "func": "if(msg.payload[0] == \"I\"){\nvar strSplit=msg.payload.split(',');\nvar Watertemp=strSplit[1];\nmsg.payload = Watertemp;\nreturn msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 560,
+        "wires": [
+            [
+                "d2a137c655a956c3"
+            ]
+        ]
+    },
+    {
+        "id": "3cc765c434366211",
+        "type": "ui_text",
+        "z": "58b6c811a59c81cb",
+        "group": "caf55d5cb2bc9ed7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 710,
+        "y": 600,
+        "wires": []
+    },
+    {
         "id": "11163e44321c56a7",
         "type": "ui_template",
         "z": "d6a3010329a78edd",
@@ -948,5 +1094,647 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "bc777b32e36eb503",
+        "type": "ui_time_scheduler",
+        "z": "c882fe75d4acae11",
+        "group": "dfb86175cc93c97d",
+        "name": "Timer",
+        "startDay": "5",
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": true,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            }
+        ],
+        "sendTopic": false,
+        "lat": "30",
+        "lon": "10",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [],
+            [
+                "0d74711087eb1031"
+            ]
+        ]
+    },
+    {
+        "id": "00ba32c30a064f3f",
+        "type": "ui_button",
+        "z": "c882fe75d4acae11",
+        "name": "Start feeding",
+        "group": "292a8341e8e17273",
+        "order": 1,
+        "width": 8,
+        "height": 2,
+        "passthru": false,
+        "label": "<font size=6>Start feeding",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "starting",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "4f396fda30fb2170",
+                "797cbc52f3e3a26f",
+                "e05b70d5e629de77"
+            ]
+        ]
+    },
+    {
+        "id": "4f396fda30fb2170",
+        "type": "debug",
+        "z": "c882fe75d4acae11",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "797cbc52f3e3a26f",
+        "type": "ui_text",
+        "z": "c882fe75d4acae11",
+        "group": "292a8341e8e17273",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Starting",
+        "label": "Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 420,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c570a749ad62fffe",
+        "type": "ui_text_input",
+        "z": "c882fe75d4acae11",
+        "name": "Water easy",
+        "label": "Liters",
+        "tooltip": "",
+        "group": "bde92985be657294",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 230,
+        "y": 400,
+        "wires": [
+            [
+                "1491461d7b824fed"
+            ]
+        ]
+    },
+    {
+        "id": "1491461d7b824fed",
+        "type": "ui_slider",
+        "z": "c882fe75d4acae11",
+        "name": "Water",
+        "label": "Water",
+        "tooltip": "",
+        "group": "bde92985be657294",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "str",
+        "min": 0,
+        "max": "1000",
+        "step": 1,
+        "className": "",
+        "x": 390,
+        "y": 400,
+        "wires": [
+            [
+                "bbf096d6c99d4901",
+                "20e3e330a692b36e"
+            ]
+        ]
+    },
+    {
+        "id": "20e3e330a692b36e",
+        "type": "function",
+        "z": "c882fe75d4acae11",
+        "name": "function 24",
+        "func": "var lit=msg.payload;\nif(lit<0){lit=-lit;}\nif(lit>1000){lit=1000}\nmsg.payload='Liters,'+lit;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 400,
+        "wires": [
+            [
+                "9495aa3df253c58e"
+            ]
+        ]
+    },
+    {
+        "id": "bbf096d6c99d4901",
+        "type": "ui_gauge",
+        "z": "c882fe75d4acae11",
+        "name": "",
+        "group": "bde92985be657294",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Water",
+        "label": "Liters",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 570,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9495aa3df253c58e",
+        "type": "serial out",
+        "z": "c882fe75d4acae11",
+        "name": "Extracting water",
+        "serial": "c0b1a7eec0dbda03",
+        "x": 780,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b8c4213eacb65b17",
+        "type": "ui_text_input",
+        "z": "c882fe75d4acae11",
+        "name": "Degrees wanted",
+        "label": "degrees wanted",
+        "tooltip": "",
+        "group": "12ef673410c8cbcd",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 240,
+        "y": 560,
+        "wires": [
+            [
+                "a6f25f5252a02797"
+            ]
+        ]
+    },
+    {
+        "id": "6be49b0389f00f9f",
+        "type": "ui_slider",
+        "z": "c882fe75d4acae11",
+        "name": "Temprature",
+        "label": "Temperature",
+        "tooltip": "",
+        "group": "12ef673410c8cbcd",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "60",
+        "step": 1,
+        "className": "",
+        "x": 530,
+        "y": 500,
+        "wires": [
+            [
+                "bda31883d320db33"
+            ]
+        ]
+    },
+    {
+        "id": "bda31883d320db33",
+        "type": "ui_gauge",
+        "z": "c882fe75d4acae11",
+        "name": "°C",
+        "group": "12ef673410c8cbcd",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9ddd17f7b7e0adc9",
+        "type": "serial out",
+        "z": "c882fe75d4acae11",
+        "name": "Heating",
+        "serial": "c0b1a7eec0dbda03",
+        "x": 600,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "cc78540596dbe102",
+        "type": "serial in",
+        "z": "c882fe75d4acae11",
+        "name": "",
+        "serial": "cbf91c0782859d81",
+        "x": 230,
+        "y": 500,
+        "wires": [
+            [
+                "8e73be5483065856"
+            ]
+        ]
+    },
+    {
+        "id": "0d74711087eb1031",
+        "type": "function",
+        "z": "c882fe75d4acae11",
+        "name": "function 25",
+        "func": "var check=msg.payload;\nvar timer= flow.get(\"time\");\nif(check==true){\nmsg.payload ='feed,'+timer;\nreturn msg;\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "7c377854aab8f4d7"
+            ]
+        ]
+    },
+    {
+        "id": "7c377854aab8f4d7",
+        "type": "serial out",
+        "z": "c882fe75d4acae11",
+        "name": "Is it time to feed",
+        "serial": "cbf91c0782859d81",
+        "x": 660,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ab661529f4a34e45",
+        "type": "ui_time_scheduler",
+        "z": "c882fe75d4acae11",
+        "group": "c0ada8f56c21604a",
+        "name": "Lights on",
+        "startDay": 0,
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": false,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            }
+        ],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "x": 220,
+        "y": 620,
+        "wires": [
+            [],
+            [
+                "6feab93540200319"
+            ]
+        ]
+    },
+    {
+        "id": "6feab93540200319",
+        "type": "function",
+        "z": "c882fe75d4acae11",
+        "name": "function 26",
+        "func": "var input=msg.payload;\n\nif(input==true){\nmsg.payload='lights,1';\nreturn msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 620,
+        "wires": [
+            [
+                "c6e114d696122779"
+            ]
+        ]
+    },
+    {
+        "id": "c6e114d696122779",
+        "type": "serial out",
+        "z": "c882fe75d4acae11",
+        "name": "",
+        "serial": "c4827efd67c08bed",
+        "x": 600,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "886cf66d04e2c605",
+        "type": "ui_time_scheduler",
+        "z": "c882fe75d4acae11",
+        "group": "4b77d66591329d0b",
+        "name": "lights off",
+        "startDay": 0,
+        "refresh": 60,
+        "devices": [
+            "Device 1"
+        ],
+        "singleOff": false,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": true,
+        "eventOptions": [
+            {
+                "label": "On",
+                "event": "true"
+            },
+            {
+                "label": "Off",
+                "event": "false"
+            }
+        ],
+        "sendTopic": false,
+        "lat": "",
+        "lon": "",
+        "customContextStore": "",
+        "outputs": 2,
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "x": 220,
+        "y": 680,
+        "wires": [
+            [],
+            [
+                "f4e44eb79aba22c6"
+            ]
+        ]
+    },
+    {
+        "id": "f4e44eb79aba22c6",
+        "type": "function",
+        "z": "c882fe75d4acae11",
+        "name": "function 27",
+        "func": "var input=msg.payload;\n\nif(input==true){\nmsg.payload=\"lights,0\";\nreturn msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 680,
+        "wires": [
+            [
+                "c22b84cb238fa9e0"
+            ]
+        ]
+    },
+    {
+        "id": "c22b84cb238fa9e0",
+        "type": "serial out",
+        "z": "c882fe75d4acae11",
+        "name": "",
+        "serial": "c4827efd67c08bed",
+        "x": 600,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "e05b70d5e629de77",
+        "type": "function",
+        "z": "c882fe75d4acae11",
+        "name": "function 28",
+        "func": "msg.payload ='feed,'+flow.get(\"time\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "7c377854aab8f4d7",
+                "9d84b1eb516e5fa3"
+            ]
+        ]
+    },
+    {
+        "id": "8e73be5483065856",
+        "type": "json",
+        "z": "c882fe75d4acae11",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "6be49b0389f00f9f"
+            ]
+        ]
+    },
+    {
+        "id": "a6f25f5252a02797",
+        "type": "function",
+        "z": "c882fe75d4acae11",
+        "name": "function 29",
+        "func": "var wan= msg.payload\nmsg.payload='Wanted,'+wan;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 560,
+        "wires": [
+            [
+                "9ddd17f7b7e0adc9"
+            ]
+        ]
+    },
+    {
+        "id": "f73046a366697dbc",
+        "type": "function",
+        "z": "c882fe75d4acae11",
+        "name": "function 30",
+        "func": "msg.payload = msg.payload*1000;\nif(msg.payload>60000){\n    msg.payload=60000;\n}\nflow.set(\"time\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9aea1ce05d49e9f",
+        "type": "ui_text_input",
+        "z": "c882fe75d4acae11",
+        "name": "How much time should i feed",
+        "label": "Enter time (in seconds):",
+        "tooltip": "",
+        "group": "1ea014229fa59644",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 280,
+        "y": 160,
+        "wires": [
+            [
+                "f73046a366697dbc"
+            ]
+        ]
+    },
+    {
+        "id": "9d84b1eb516e5fa3",
+        "type": "debug",
+        "z": "c882fe75d4acae11",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "933630fdac62a3ec",
+        "type": "serial in",
+        "z": "c882fe75d4acae11",
+        "name": "",
+        "serial": "cbf91c0782859d81",
+        "x": 970,
+        "y": 400,
+        "wires": [
+            [
+                "ed198f760c5af3ab"
+            ]
+        ]
+    },
+    {
+        "id": "ed198f760c5af3ab",
+        "type": "debug",
+        "z": "c882fe75d4acae11",
+        "name": "debug 14",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 400,
+        "wires": []
     }
 ]
