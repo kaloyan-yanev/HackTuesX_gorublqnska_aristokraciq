@@ -32,10 +32,6 @@ float LPumped = 0.0, l_minute;
 bool isLampsOn = false;
 bool isFeeding = false;
 
-
-
-
-
 //============================================================================================
 
 void flow(){
@@ -106,19 +102,18 @@ void setup() {
 void loop() {
   sonIn.requestTemperatures();
   int waterTemp = sonIn.getTempCByIndex(0);
-  Serial.println(waterTemp);
   modeButtonState = digitalRead(modeChangePin);
   if(modeButtonState == HIGH){
     isChangingWater = !isChangingWater; 
     digitalWrite(pumpPin, LOW);
   }
   if(isChangingWater == true){
+    Serial.println("O,"+waterTemp);
     bool dirtyWaterOut = false;
     bool setCleanWater = false;
     isPumping = false;
     sonOut.requestTemperatures();
     int newWaterTemp = sonOut.getTempCByIndex(0);
-    Serial.println(newWaterTemp);
     int pumpMangageState = digitalRead(pumpManagePin);
     if(pumpManagePin == HIGH){
       isPumping = !isPumping;
@@ -163,7 +158,30 @@ void loop() {
       }
     }
   }
+  
   if(isChangingWater == false){
+    while(Serial.available() == 0){
+      
+    }
+    String msg = Serial.readString();
+    String key;
+    String value;
+    int splitInd = msg.indexOf(',');
+    key = msg.substring(0, splitInd);
+    value = msg.substring(splitIn+1);
+    
+    
+    /*String stringValue;
+String stringValue1;
+int stringValue2 = 0;
+
+stringValue = "FirstSensorReading: 456"
+
+int index = stringValue.indexOf(':');
+stringValue1 = stringValue.substring(0, index);
+stringValue2 = stringValue.substring(index + 2).toInt();*/
+    
+    Serial.println("I,"+waterTemp);
     isPumping = false;
     long timePumpDelay = 0;
     int periodPumpDelay = timeBetweenPumps;
