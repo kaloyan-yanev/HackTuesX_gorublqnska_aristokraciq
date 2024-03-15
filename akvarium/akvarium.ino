@@ -28,7 +28,7 @@ int startDay = 7;
 int endDay = 19;
 volatile int flowFreq;
 int LToGetOut = 10;
-float LPumped = 0.0,l_minute;
+float LPumped = 0.0, l_minute;
 bool isLampsOn = false;
 bool isFeeding = false;
 
@@ -56,6 +56,7 @@ void Feeding(int periodFeed){
 }
 
 void Pumping(){
+  long timeNow = 0;
   bool donePumping = false;
   int period = timePumping;
   isPumping = true;
@@ -75,8 +76,8 @@ void LightsOff(){
   digitalWrite(lampPin, LOW);
 }
 
-void Warming(){
-   if(waterTemp < wantedWaterTemp){
+void Warming(int temp){
+   if(temp < wantedTemp){
     digitalWrite(reostatPin, HIGH);
    }else{
     digitalWrite(reostatPin, LOW);
@@ -85,6 +86,7 @@ void Warming(){
 
 void setup() {
   Serial.begin(115200);
+  Serial.print(l_minute);
   Serial.println("Charging the capacitors. Wait 10 seconds");
   delay(10000);
   pinMode(pumpPin, OUTPUT);
@@ -97,13 +99,13 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(flowPin), flow, RISING);
   
   
-  termoSonda1.begin();
-  termoSonda2.begin();
+  sonIn.begin();
+  sonOut.begin();
 }
 
 void loop() {
   sonIn.requestTemperatures();
-  waterTemp = sonIn.getTempCByIndex(0);
+  int waterTemp = sonIn.getTempCByIndex(0);
   Serial.println(waterTemp);
   modeButtonState = digitalRead(modeChangePin);
   if(modeButtonState == HIGH){
@@ -127,7 +129,7 @@ void loop() {
       int curFlowTime = 0;
       if(millis() >= curFlowTime + 1000){
         if(flowFreq != 0){
-          LPumped += 1_minute/60;
+          LPumped += l_minute/60;
           Serial.println(LPumped);
         }else{
           Serial.println(LPumped);
@@ -146,7 +148,7 @@ void loop() {
       }
     }else{
       if(isPumping == true){
-        if(newWaterTemp < wantedWaterTemp-3){
+        if(newWaterTemp < wantedTemp-3){
           Serial.println("Temperature of the new water is colder. Put in warmer water");
         }else{
           digitalWrite(pumpPin, HIGH);
@@ -165,7 +167,7 @@ void loop() {
     isPumping = false;
     long timePumpDelay = 0;
     int periodPumpDelay = timeBetweenPumps;
-    Warming();
+    Warming(waterTemp);
 
     if(millis() >= timePumpDelay + periodPumpDelay){
       Pumping();
@@ -181,7 +183,7 @@ void loop() {
       LightsOff();
     }
     if(isFeeding == true){
-      Feeding
+      Feeding(500);
     }
     /*if(currentTime.hour() == 7){
       Feeding();
