@@ -239,7 +239,7 @@
         "rts": "none",
         "cts": "none",
         "dsr": "none",
-        "newline": "15",
+        "newline": "100",
         "bin": "false",
         "out": "time",
         "addchar": "",
@@ -268,12 +268,23 @@
         "className": ""
     },
     {
+        "id": "1ea014229fa59644",
+        "type": "ui_group",
+        "name": "How long should the food be dispensed for:",
+        "tab": "567818b532b20952",
+        "order": 3,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "170211c5f81fec88",
         "type": "ui_time_scheduler",
         "z": "58b6c811a59c81cb",
         "group": "dfb86175cc93c97d",
         "name": "Timer",
-        "startDay": "4",
+        "startDay": "5",
         "refresh": 60,
         "devices": [
             "Device 1"
@@ -286,10 +297,6 @@
             {
                 "label": "On",
                 "event": "true"
-            },
-            {
-                "label": "Off",
-                "event": "false"
             }
         ],
         "sendTopic": false,
@@ -300,12 +307,10 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "x": 370,
-        "y": 200,
+        "x": 290,
+        "y": 280,
         "wires": [
-            [
-                "6b9be259bc132cbf"
-            ],
+            [],
             [
                 "6b9be259bc132cbf"
             ]
@@ -331,12 +336,13 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
-        "y": 300,
+        "x": 310,
+        "y": 380,
         "wires": [
             [
                 "564240a4240b9bac",
-                "fd9490d66a67aba7"
+                "fd9490d66a67aba7",
+                "756d54529b94fc1e"
             ]
         ]
     },
@@ -353,8 +359,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 380,
-        "y": 340,
+        "x": 500,
+        "y": 420,
         "wires": []
     },
     {
@@ -374,8 +380,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 380,
-        "y": 260,
+        "x": 500,
+        "y": 340,
         "wires": []
     },
     {
@@ -396,8 +402,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 170,
-        "y": 420,
+        "x": 310,
+        "y": 460,
         "wires": [
             [
                 "c01be2495c4b7a2f"
@@ -423,8 +429,8 @@
         "max": "1000",
         "step": 1,
         "className": "",
-        "x": 330,
-        "y": 420,
+        "x": 470,
+        "y": 460,
         "wires": [
             [
                 "2f703281d3d8aeb1",
@@ -437,18 +443,19 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 1",
-        "func": "var lit=msg.payload;\nmsg.payload='Liters %d', lit;\nreturn msg;\n",
+        "func": "var lit=msg.payload;\nmsg.payload='Liters,'+lit;\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
-        "y": 420,
+        "x": 660,
+        "y": 460,
         "wires": [
             [
-                "b3a9285f21117083"
+                "2ac2fc9bec3643bc",
+                "d9b24aeaaf8e6c09"
             ]
         ]
     },
@@ -476,8 +483,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 510,
-        "y": 460,
+        "x": 650,
+        "y": 500,
         "wires": []
     },
     {
@@ -486,8 +493,8 @@
         "z": "58b6c811a59c81cb",
         "name": "Extracting water",
         "serial": "c0b1a7eec0dbda03",
-        "x": 740,
-        "y": 420,
+        "x": 860,
+        "y": 460,
         "wires": []
     },
     {
@@ -508,11 +515,11 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 160,
-        "y": 580,
+        "x": 320,
+        "y": 620,
         "wires": [
             [
-                "55ad258672f39bff"
+                "5991d46e10a4941e"
             ]
         ]
     },
@@ -535,8 +542,8 @@
         "max": "60",
         "step": 1,
         "className": "",
-        "x": 410,
-        "y": 520,
+        "x": 610,
+        "y": 560,
         "wires": [
             [
                 "d86ec0fdc071f005"
@@ -567,8 +574,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 590,
-        "y": 520,
+        "x": 790,
+        "y": 560,
         "wires": []
     },
     {
@@ -577,8 +584,8 @@
         "z": "58b6c811a59c81cb",
         "name": "Heating",
         "serial": "c4827efd67c08bed",
-        "x": 520,
-        "y": 580,
+        "x": 680,
+        "y": 620,
         "wires": []
     },
     {
@@ -587,8 +594,8 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "cbf91c0782859d81",
-        "x": 110,
-        "y": 520,
+        "x": 310,
+        "y": 560,
         "wires": [
             [
                 "85e0d0836d456e32"
@@ -600,15 +607,15 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 4",
-        "func": "var check=msg.payload;\nif(check==true){\nreturn console.log(\"feeding 15\");\n}\nelse {return console.log(\"It's not time yet\");}",
+        "func": "var check=msg.payload;\nvar timer= flow.get(\"time\");\nif(check==true){\nmsg.payload ='feed,'+timer;\nreturn msg;\n}\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 200,
+        "x": 500,
+        "y": 280,
         "wires": [
             [
                 "c28f28ee1884cf01"
@@ -621,8 +628,8 @@
         "z": "58b6c811a59c81cb",
         "name": "Is it time to feed",
         "serial": "cbf91c0782859d81",
-        "x": 800,
-        "y": 220,
+        "x": 740,
+        "y": 340,
         "wires": []
     },
     {
@@ -644,10 +651,6 @@
             {
                 "label": "On",
                 "event": "true"
-            },
-            {
-                "label": "Off",
-                "event": "false"
             }
         ],
         "sendTopic": false,
@@ -658,12 +661,10 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "x": 160,
-        "y": 740,
+        "x": 300,
+        "y": 680,
         "wires": [
-            [
-                "743e148b214ec0bc"
-            ],
+            [],
             [
                 "743e148b214ec0bc"
             ]
@@ -674,15 +675,15 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 5",
-        "func": "var input=msg.payload;\n\nif(input==true){\nreturn console.log(\"lights 1\");\n}\n",
+        "func": "var input=msg.payload;\n\nif(input==true){\nmsg.payload='lights,1';\nreturn msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 740,
+        "x": 500,
+        "y": 680,
         "wires": [
             [
                 "d7b679c07ddb1ea8"
@@ -695,8 +696,8 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "c4827efd67c08bed",
-        "x": 550,
-        "y": 740,
+        "x": 680,
+        "y": 680,
         "wires": []
     },
     {
@@ -732,12 +733,10 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "x": 160,
-        "y": 800,
+        "x": 300,
+        "y": 740,
         "wires": [
-            [
-                "b0d3812797700802"
-            ],
+            [],
             [
                 "b0d3812797700802"
             ]
@@ -748,15 +747,15 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 6",
-        "func": "var input=msg.payload;\n\nif(input==true){\nreturn console.log(\"lights 0\");\n}\n",
+        "func": "var input=msg.payload;\n\nif(input==true){\nmsg.payload=\"lights,0\";\nreturn msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 800,
+        "x": 500,
+        "y": 740,
         "wires": [
             [
                 "fcfec8f3c5984b77"
@@ -769,8 +768,8 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "c4827efd67c08bed",
-        "x": 560,
-        "y": 800,
+        "x": 680,
+        "y": 740,
         "wires": []
     },
     {
@@ -778,37 +777,20 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 7",
-        "func": "var check=msg.payload;\nreturn console.log(\"feed 14\");",
+        "func": "msg.payload ='feed,'+flow.get(\"time\");\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 300,
+        "x": 500,
+        "y": 380,
         "wires": [
             [
-                "c28f28ee1884cf01"
+                "c28f28ee1884cf01",
+                "57fc4884de8c18e7"
             ]
-        ]
-    },
-    {
-        "id": "4d3dabb1f29fdf30",
-        "type": "function",
-        "z": "58b6c811a59c81cb",
-        "name": "function 8",
-        "func": "var temp=msg.payload;\n\nreturn console.log(\"Wanted %d\", temp);",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 640,
-        "wires": [
-            []
         ]
     },
     {
@@ -819,8 +801,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 270,
-        "y": 520,
+        "x": 470,
+        "y": 560,
         "wires": [
             [
                 "2c10fdfc98d1368e"
@@ -828,26 +810,84 @@
         ]
     },
     {
-        "id": "c5a147778449e474",
-        "type": "ui_media",
+        "id": "d9b24aeaaf8e6c09",
+        "type": "debug",
         "z": "58b6c811a59c81cb",
-        "group": "292a8341e8e17273",
-        "name": "",
-        "width": 0,
-        "height": 0,
-        "order": 2,
-        "category": "Nasence",
-        "file": "IvanKralov-max_1840.jpg",
-        "layout": "adjust",
-        "showcontrols": true,
-        "loop": true,
-        "onstart": false,
-        "scope": "local",
-        "tooltip": "",
-        "x": 170,
-        "y": 100,
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5991d46e10a4941e",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 8",
+        "func": "var wan= msg.payload\nmsg.payload='Wanted,'+wan;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 620,
+        "wires": [
+            [
+                "55ad258672f39bff"
+            ]
+        ]
+    },
+    {
+        "id": "c2e9be9c82074ef6",
+        "type": "function",
+        "z": "58b6c811a59c81cb",
+        "name": "function 9",
+        "func": "msg.payload = msg.payload*1000;\nif(msg.payload>60000){\n    msg.payload=60000;\n}\nflow.set(\"time\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 220,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "3667a20cf30eec49",
+        "type": "ui_text_input",
+        "z": "58b6c811a59c81cb",
+        "name": "How much time should i feed",
+        "label": "Enter time (in seconds):",
+        "tooltip": "",
+        "group": "1ea014229fa59644",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 360,
+        "y": 220,
+        "wires": [
+            [
+                "c2e9be9c82074ef6"
+            ]
         ]
     },
     {
@@ -856,8 +896,8 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "cbf91c0782859d81",
-        "x": 910,
-        "y": 420,
+        "x": 1050,
+        "y": 460,
         "wires": [
             [
                 "6b5d05b194549c42"
@@ -877,24 +917,59 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1140,
-        "y": 420,
+        "x": 1280,
+        "y": 460,
         "wires": []
     },
     {
-        "id": "b3a9285f21117083",
-        "type": "json",
+        "id": "f4891c6a21529697",
+        "type": "debug",
         "z": "58b6c811a59c81cb",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 630,
-        "y": 360,
-        "wires": [
-            [
-                "2ac2fc9bec3643bc"
-            ]
-        ]
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "57fc4884de8c18e7",
+        "type": "debug",
+        "z": "58b6c811a59c81cb",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5bbdb082f8e0a17b",
+        "type": "debug",
+        "z": "58b6c811a59c81cb",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 680,
+        "wires": []
     }
 ]
