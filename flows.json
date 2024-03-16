@@ -193,7 +193,7 @@
         "id": "cbf91c0782859d81",
         "type": "serial-port",
         "name": "",
-        "serialport": "/dev/ttyACM0",
+        "serialport": "/dev/ttyUSB0",
         "serialbaud": "9600",
         "databits": "8",
         "parity": "none",
@@ -571,7 +571,7 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 36",
-        "func": "var input=msg.payload;\n\nif(input==true){\nmsg.payload='lights,1';\nreturn msg;\n}\n",
+        "func": "var input=msg.payload;\nif(input==true){\nmsg.payload='lights,1';\nreturn msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -592,7 +592,7 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "cbf91c0782859d81",
-        "x": 580,
+        "x": 570,
         "y": 1100,
         "wires": []
     },
@@ -612,10 +612,6 @@
         "customPayload": false,
         "eventMode": true,
         "eventOptions": [
-            {
-                "label": "On",
-                "event": "true"
-            },
             {
                 "label": "Off",
                 "event": "false"
@@ -643,7 +639,7 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 37",
-        "func": "var input=msg.payload;\n\nif(input==true){\nmsg.payload=\"lights,0\";\nreturn msg;\n}\n",
+        "func": "var input=msg.payload;\n\nif(input==false){\nmsg.payload=\"lights,0\";\nreturn msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -664,7 +660,7 @@
         "z": "58b6c811a59c81cb",
         "name": "",
         "serial": "cbf91c0782859d81",
-        "x": 580,
+        "x": 570,
         "y": 1160,
         "wires": []
     },
