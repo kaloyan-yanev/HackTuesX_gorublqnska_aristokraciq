@@ -1,9 +1,8 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
-#include <Arduino.h>
 
-#define lampPin 27
-#define pumpPin 35
+#define lampPin 12
+#define pumpPin 27
 #define servoPin 34
 #define reostatPin 12
 #define SON_IN 14
@@ -97,57 +96,94 @@ void setup() {
 }
 
 void loop() {
-  String msg = Serial.readString();
+  if (Serial.available() > 0) {
+    int splitInd = 0;
+    String msg = Serial.readString();
+    Serial.println(msg);
+    delay(500);
     String key;
     String value;
-    int splitInd = msg.indexOf(',');
+    splitInd = msg.indexOf(',');
     key = msg.substring(0, splitInd);
     value = msg.substring(splitInd+1);
     
     if(key == "feed"){
       Feeding(value.toInt());
+      Serial.println("feeding");
+      delay(500);
     }
 
     if(key == "lights"){
         int lState = value.toInt();
         if(lState == 1){
           LightsOn();
+          Serial.println("lights on");
+          delay(500);
         }else{
-          LightsOff();         
+          LightsOff();
+          Serial.println("lightsoff");
+          delay(500);         
         }
     }
 
     if(key == "Wanted"){
         wantedTemp = value.toInt();
+        Serial.println(wantedTemp);
     }
 
     if(key == "Liters"){
         LToGetOut = value.toInt();
+        Serial.println(LToGetOut);
     }
+  }
   sonIn.requestTemperatures();
-  int waterTemp = -127;
+  float waterTemp = -127;
   waterTemp = sonIn.getTempCByIndex(0);
   sonOut.requestTemperatures();
-  int secondWaterTemp = -127;
+  float secondWaterTemp = -127;
   secondWaterTemp = sonOut.getTempCByIndex(0);
-  
+  Serial.println("temp1" + String(waterTemp));
+  Serial.println("temp2" + String(secondWaterTemp));
+  delay(500);
+  int pumpMangageState = digitalRead(pumpManagePin);
   modeButtonState = digitalRead(modeChangePin);
+  
+  
+
+  int curFlowTime = 0;
+    if(millis() >= curFlowTime + 1000){
+      if(flowFreq != 0){
+        LPumped += l_minute/60;
+        Serial.println("volume of flow" + String(LPumped));
+        delay(500);
+      }else{
+        Serial.println("volume of flow" + String(LPumped));
+        delay(500);
+      }
+    }
   if(modeButtonState == HIGH){
-    isChangingWater = !isChangingWater; 
-    digitalWrite(pumpPin, LOW);
+    Serial.println("changing mode");
+    delay(500);
+  }
+  if(pumpManagePin == HIGH){
+    Serial.println("changing pump state");
+    delay(500);
   }
   if(isChangingWater == true){
     bool dirtyWaterOut = false;
     bool setCleanWater = false;
     isPumping = false;
-    int pumpMangageState = digitalRead(pumpManagePin);
+    sonOut.requestTemperatures();
+    int newWaterTemp = sonOut.getTempCByIndex(0);
+    pumpMangageState = digitalRead(pumpManagePin);
     if(pumpManagePin == HIGH){
       isPumping = !isPumping;
+      Serial.println("Changing pump state");
     }
 
     if(dirtyWaterOut == false){
 
-      int curFlowTime = 0;
+      curFlowTime = 0;
       if(millis() >= curFlowTime + 1000){
         if(flowFreq != 0){
           LPumped += l_minute/60;
@@ -169,7 +205,7 @@ void loop() {
       }
     }else{
       if(isPumping == true){
-        if(secondWaterTemp < wantedTemp-3){
+        if(newWaterTemp < wantedTemp-3){
           Serial.println("Temperature of the new water is colder. Put in warmer water");
         }else{
           digitalWrite(pumpPin, HIGH);
