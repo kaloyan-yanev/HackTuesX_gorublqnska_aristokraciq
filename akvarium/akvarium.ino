@@ -1,16 +1,16 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include <Arduino.h>
 
-#define lampPin 14
-#define pumpPin 27
-#define servoPin 26
-#define reostatPin 33
-#define SON_IN 12
-#define SON_OUT 13
-#define flowPin 25
-#define buzzerPin 4
+#define lampPin 27
+#define pumpPin 35
+#define servoPin 34
+#define reostatPin 12
+#define SON_IN 14
+#define SON_OUT 33
+#define flowPin 32
 #define modeChangePin 15
-#define pumpManagePin 2
+#define pumpManagePin 17
 
 OneWire temp1(SON_IN);
 OneWire temp2(SON_OUT);
@@ -81,10 +81,7 @@ void Warming(int temp){
 }
 
 void setup() {
-  Serial.begin(115200);
-  Serial.print(l_minute);
-  Serial.println("Charging the capacitors. Wait 10 seconds");
-  delay(10000);
+  Serial.begin(9600);
   pinMode(pumpPin, OUTPUT);
   pinMode(reostatPin, OUTPUT);
   pinMode(lampPin, OUTPUT);
@@ -100,15 +97,46 @@ void setup() {
 }
 
 void loop() {
+  String msg = Serial.readString();
+    String key;
+    String value;
+    int splitInd = msg.indexOf(',');
+    key = msg.substring(0, splitInd);
+    value = msg.substring(splitInd+1);
+    
+    if(key == "feed"){
+      Feeding(value.toInt());
+    }
+
+    if(key == "lights"){
+        int lState = value.toInt();
+        if(lState == 1){
+          LightsOn();
+        }else{
+          LightsOff();         
+        }
+    }
+
+    if(key == "Wanted"){
+        wantedTemp = value.toInt();
+    }
+
+    if(key == "Liters"){
+        LToGetOut = value.toInt();
+        Serial.println(msg);
+        //Serial.println(key);
+        //Serial.println(LToGetOut);
+    }
   sonIn.requestTemperatures();
   int waterTemp = sonIn.getTempCByIndex(0);
+  
   modeButtonState = digitalRead(modeChangePin);
   if(modeButtonState == HIGH){
     isChangingWater = !isChangingWater; 
     digitalWrite(pumpPin, LOW);
   }
   if(isChangingWater == true){
-    Serial.println("O,"+waterTemp);
+    //Serial.println("O,"+waterTemp);
     bool dirtyWaterOut = false;
     bool setCleanWater = false;
     isPumping = false;
@@ -160,28 +188,9 @@ void loop() {
   }
   
   if(isChangingWater == false){
-    while(Serial.available() == 0){
-      
-    }
-    String msg = Serial.readString();
-    String key;
-    String value;
-    int splitInd = msg.indexOf(',');
-    key = msg.substring(0, splitInd);
-    value = msg.substring(splitIn+1);
     
     
-    /*String stringValue;
-String stringValue1;
-int stringValue2 = 0;
-
-stringValue = "FirstSensorReading: 456"
-
-int index = stringValue.indexOf(':');
-stringValue1 = stringValue.substring(0, index);
-stringValue2 = stringValue.substring(index + 2).toInt();*/
     
-    Serial.println("I,"+waterTemp);
     isPumping = false;
     long timePumpDelay = 0;
     int periodPumpDelay = timeBetweenPumps;
@@ -203,12 +212,5 @@ stringValue2 = stringValue.substring(index + 2).toInt();*/
     if(isFeeding == true){
       Feeding(500);
     }
-    /*if(currentTime.hour() == 7){
-      Feeding();
-      LightsOn();
-    }else if(currentTime.hour() == 19){
-      Feeding();
-      LightsOff();
-    }*/
   }
 }
