@@ -1,16 +1,16 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include <Arduino.h>
 
-#define lampPin 14
-#define pumpPin 27
-#define servoPin 26
-#define reostatPin 33
-#define SON_IN 12
-#define SON_OUT 13
-#define flowPin 25
-#define buzzerPin 4
+#define lampPin 27
+#define pumpPin 35
+#define servoPin 34
+#define reostatPin 12
+#define SON_IN 14
+#define SON_OUT 33
+#define flowPin 32
 #define modeChangePin 15
-#define pumpManagePin 2
+#define pumpManagePin 17
 
 OneWire temp1(SON_IN);
 OneWire temp2(SON_OUT);
@@ -28,13 +28,9 @@ int startDay = 7;
 int endDay = 19;
 volatile int flowFreq;
 int LToGetOut = 10;
-float LPumped = 0.0,l_minute;
+float LPumped = 0.0, l_minute;
 bool isLampsOn = false;
 bool isFeeding = false;
-
-
-
-
 
 //============================================================================================
 
@@ -56,6 +52,7 @@ void Feeding(int periodFeed){
 }
 
 void Pumping(){
+  long timeNow = 0;
   bool donePumping = false;
   int period = timePumping;
   isPumping = true;
@@ -75,8 +72,8 @@ void LightsOff(){
   digitalWrite(lampPin, LOW);
 }
 
-void Warming(){
-   if(waterTemp < wantedWaterTemp){
+void Warming(int temp){
+   if(temp < wantedTemp){
     digitalWrite(reostatPin, HIGH);
    }else{
     digitalWrite(reostatPin, LOW);
@@ -84,9 +81,7 @@ void Warming(){
 }
 
 void setup() {
-  Serial.begin(115200);
-  Serial.println("Charging the capacitors. Wait 10 seconds");
-  delay(10000);
+  Serial.begin(9600);
   pinMode(pumpPin, OUTPUT);
   pinMode(reostatPin, OUTPUT);
   pinMode(lampPin, OUTPUT);
@@ -97,26 +92,56 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(flowPin), flow, RISING);
   
   
-  termoSonda1.begin();
-  termoSonda2.begin();
+  sonIn.begin();
+  sonOut.begin();
 }
 
 void loop() {
+  String msg = Serial.readString();
+    String key;
+    String value;
+    int splitInd = msg.indexOf(',');
+    key = msg.substring(0, splitInd);
+    value = msg.substring(splitInd+1);
+    
+    if(key == "feed"){
+      Feeding(value.toInt());
+    }
+
+    if(key == "lights"){
+        int lState = value.toInt();
+        if(lState == 1){
+          LightsOn();
+        }else{
+          LightsOff();         
+        }
+    }
+
+    if(key == "Wanted"){
+        wantedTemp = value.toInt();
+    }
+
+    if(key == "Liters"){
+        LToGetOut = value.toInt();
+        Serial.println(msg);
+        //Serial.println(key);
+        //Serial.println(LToGetOut);
+    }
   sonIn.requestTemperatures();
-  waterTemp = sonIn.getTempCByIndex(0);
-  Serial.println(waterTemp);
+  int waterTemp = sonIn.getTempCByIndex(0);
+  
   modeButtonState = digitalRead(modeChangePin);
   if(modeButtonState == HIGH){
     isChangingWater = !isChangingWater; 
     digitalWrite(pumpPin, LOW);
   }
   if(isChangingWater == true){
+    //Serial.println("O,"+waterTemp);
     bool dirtyWaterOut = false;
     bool setCleanWater = false;
     isPumping = false;
     sonOut.requestTemperatures();
     int newWaterTemp = sonOut.getTempCByIndex(0);
-    Serial.println(newWaterTemp);
     int pumpMangageState = digitalRead(pumpManagePin);
     if(pumpManagePin == HIGH){
       isPumping = !isPumping;
@@ -127,7 +152,7 @@ void loop() {
       int curFlowTime = 0;
       if(millis() >= curFlowTime + 1000){
         if(flowFreq != 0){
-          LPumped += 1_minute/60;
+          LPumped += l_minute/60;
           Serial.println(LPumped);
         }else{
           Serial.println(LPumped);
@@ -146,7 +171,7 @@ void loop() {
       }
     }else{
       if(isPumping == true){
-        if(newWaterTemp < wantedWaterTemp-3){
+        if(newWaterTemp < wantedTemp-3){
           Serial.println("Temperature of the new water is colder. Put in warmer water");
         }else{
           digitalWrite(pumpPin, HIGH);
@@ -161,11 +186,15 @@ void loop() {
       }
     }
   }
+  
   if(isChangingWater == false){
+    
+    
+    
     isPumping = false;
     long timePumpDelay = 0;
     int periodPumpDelay = timeBetweenPumps;
-    Warming();
+    Warming(waterTemp);
 
     if(millis() >= timePumpDelay + periodPumpDelay){
       Pumping();
@@ -181,14 +210,7 @@ void loop() {
       LightsOff();
     }
     if(isFeeding == true){
-      Feeding
+      Feeding(500);
     }
-    /*if(currentTime.hour() == 7){
-      Feeding();
-      LightsOn();
-    }else if(currentTime.hour() == 19){
-      Feeding();
-      LightsOff();
-    }*/
   }
 }
