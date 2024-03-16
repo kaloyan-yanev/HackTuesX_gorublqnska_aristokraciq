@@ -123,12 +123,13 @@ void loop() {
 
     if(key == "Liters"){
         LToGetOut = value.toInt();
-        Serial.println(msg);
-        //Serial.println(key);
-        //Serial.println(LToGetOut);
     }
   sonIn.requestTemperatures();
-  int waterTemp = sonIn.getTempCByIndex(0);
+  int waterTemp = -127;
+  waterTemp = sonIn.getTempCByIndex(0);
+  sonOut.requestTemperatures();
+  int secondWaterTemp = -127;
+  secondWaterTemp = sonOut.getTempCByIndex(0);
   
   modeButtonState = digitalRead(modeChangePin);
   if(modeButtonState == HIGH){
@@ -136,12 +137,9 @@ void loop() {
     digitalWrite(pumpPin, LOW);
   }
   if(isChangingWater == true){
-    //Serial.println("O,"+waterTemp);
     bool dirtyWaterOut = false;
     bool setCleanWater = false;
     isPumping = false;
-    sonOut.requestTemperatures();
-    int newWaterTemp = sonOut.getTempCByIndex(0);
     int pumpMangageState = digitalRead(pumpManagePin);
     if(pumpManagePin == HIGH){
       isPumping = !isPumping;
@@ -171,7 +169,7 @@ void loop() {
       }
     }else{
       if(isPumping == true){
-        if(newWaterTemp < wantedTemp-3){
+        if(secondWaterTemp < wantedTemp-3){
           Serial.println("Temperature of the new water is colder. Put in warmer water");
         }else{
           digitalWrite(pumpPin, HIGH);
