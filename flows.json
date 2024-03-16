@@ -513,7 +513,7 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 22",
-        "func": "var wan= msg.payload\nmsg.payload='Wanted,'+wan;\nreturn msg;",
+        "func": "var wan= msg.payload\nmsg.payload='Wanted,'+wan;\nflow.set(\"Wanted\", wan);\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -706,25 +706,9 @@
         "y": 940,
         "wires": [
             [
-                "0e24e7a22d746765"
-            ]
-        ]
-    },
-    {
-        "id": "0e24e7a22d746765",
-        "type": "json",
-        "z": "58b6c811a59c81cb",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 390,
-        "y": 940,
-        "wires": [
-            [
+                "fc916a71c06f312b",
                 "3951fe9ad641576e",
-                "85df45f9070e5cd4",
-                "fc916a71c06f312b"
+                "85df45f9070e5cd4"
             ]
         ]
     },
@@ -733,7 +717,7 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 38",
-        "func": "\nif(msg.payload[0] == \"I\"){\nmsg.payload.split(',')[1];\nvar Watertemp=msg.payload;\nmsg.payload = Watertemp\n}\nvar Buckettemp = 0;\nif(msg.payload[0] == \"O\"){\nBuckettemp=msg.payload;\nmsg.payload = Buckettemp;\n}\nif(Watertemp-Buckettemp>2){\n    msg.payload=\"Water is too cold\";\n    return msg;\n}\nif(Buckettemp-Watertemp>2){\n    msg.payload=\"Water it too hot\";\n    return msg.payload;\n}\nmsg.payload=\"Perfect\";\nreturn msg;",
+        "func": "var Temp=msg.payload;\nvar wanted = flow.get(\"wanted\");\nif(Temp-wanted>2){\n    msg.payload=\"Water is too cold\";\n    return msg;\n}\nif(wanted-Temp<-1){\n    msg.payload=\"Water it too hot\";\n    return msg;\n}\nmsg.payload=\"Perfect\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -781,7 +765,7 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 39",
-        "func": "var Buckettemp = 0;\nif(msg.payload[0] == \"O\"){\nvar strSplit=msg.payload.split(',');\nBuckettemp=strSplit[1];\nmsg.payload = Buckettemp;\nreturn msg;\n}\n",
+        "func": "var tempb=0;\nsetTimeout(()=>{tempb=msg.payload;},6000);\nmsg.payload = tempb;\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -801,7 +785,7 @@
         "type": "function",
         "z": "58b6c811a59c81cb",
         "name": "function 40",
-        "func": "if(msg.payload[0] == \"I\"){\nvar strSplit=msg.payload.split(',');\nvar Watertemp=strSplit[1];\nmsg.payload = Watertemp;\nreturn msg;\n}\n",
+        "func": "var tempw=msg.payload;\nmsg.payload = tempw\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -946,7 +930,7 @@
         "name": "Extracting water",
         "serial": "cbf91c0782859d81",
         "x": 800,
-        "y": 740,
+        "y": 760,
         "wires": []
     },
     {
